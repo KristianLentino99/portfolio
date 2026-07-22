@@ -53,7 +53,7 @@ export const Whisper: Story = {
 }
 
 export const Narration: Story = {
-  args: { variant: 'narration', tone: 'orange', children: 'Every arc added a new skill. The founder mindset connected them.' },
+  args: { variant: 'narration', tone: 'orange', children: 'Every arc of this story adds new skills to my arsenal. The founder mindset connected them.' },
 }
 
 // ── Tone variants ─────────────────────────────────────────────────

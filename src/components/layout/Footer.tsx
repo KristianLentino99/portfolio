@@ -14,13 +14,13 @@ interface FooterProps {
 export default function Footer({ path, onNavigate, next }: FooterProps) {
   return (
     <footer className="site-footer">
-      <span>© 2026 Kristian Lentino · Chignolo Po, Italy</span>
+      <span>© 2026 Kristian Lentino · Italy</span>
       {next ? (
         <AppLink to={next.path} navigate={onNavigate} className="footer-link">
           {next.label}
         </AppLink>
       ) : path === '/' ? (
-        <span className="konami-hint">psst — try the Konami code ↑↑↓↓←→←→BA</span>
+        <span className="sudo-hint">psst — try sudo</span>
       ) : (
         <span className="continued">TO BE CONTINUED…</span>
       )}

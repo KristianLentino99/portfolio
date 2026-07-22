@@ -86,25 +86,26 @@ function useTheme() {
 
 
 const sagaArcs = [
-  { arc: 'ARC 1 · 2019', title: 'First Quest', body: 'Zucchetti → Dieffetech. Full-stack, real customers.' },
-  { arc: 'ARC 2 · 2022', title: 'Fintech Saga', body: 'Moneyfarm. Scala. Shipped Share Investing.' },
+  { arc: 'ARC 1 · 2019', title: 'First Quest', body: 'Zucchetti → Dieffetech. Full-stack, where the journey started.' },
+  { arc: 'ARC 2 · 2022', title: 'Fintech Saga', body: 'Worked in Moneyfarm, leading digital asset management platform bringing Share Investing to our customers.' },
   { arc: 'ARC 3 · 2023', title: 'Koomy is born', body: "Co-founded Italy's digital comics platform.", featured: true },
-  { arc: 'ARC 4 · 2024', title: 'Tokyo Chapter', body: 'Spoke at Scala Matsuri. Joined commercetools.' },
+  { arc: 'ARC 4 · 2024', title: 'Tokyo Chapter', body: 'Spoke at Scala Matsuri and later joined Commercetools as BE Engineer.' },
   { arc: 'ARC 5 · NOW', title: 'Agent Era', body: 'Frontier AI agents by day, Koomy growth by night.' },
 ]
 
 function HomePage({ navigate }: { navigate: (path: string) => void }) {
-  const [superMode, setSuperMode] = useState(false)
+  const [sudoMode, setSudoMode] = useState(false)
   const sequenceRef = useRef(0)
 
   useEffect(() => {
-    const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
+    const sequence = ['s', 'u', 'd', 'o']
     const onKeyDown = (event: KeyboardEvent) => {
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || (event.target as HTMLElement)?.isContentEditable) return
       sequenceRef.current = event.key === sequence[sequenceRef.current] ? sequenceRef.current + 1 : event.key === sequence[0] ? 1 : 0
       if (sequenceRef.current === sequence.length) {
         sequenceRef.current = 0
-        setSuperMode(true)
-        window.setTimeout(() => setSuperMode(false), 3500)
+        setSudoMode(true)
+        window.setTimeout(() => setSudoMode(false), 4800)
       }
     }
     window.addEventListener('keydown', onKeyDown)
@@ -117,9 +118,9 @@ function HomePage({ navigate }: { navigate: (path: string) => void }) {
     <>
       <section className="hero home-hero">
         <div className="hero-copy">
-          <p className="eyebrow">ENGINEER · FOUNDER · CHIGNOLO PO → THE WORLD</p>
-          <h1>I build software with engineering rigor <span className="dash">—</span><br /><span className="accent">and shonen energy.</span></h1>
-          <p className="lead">Kristian Lentino. AI agents at commercetools by day, co-founder of Koomy — Italy's digital comics platform — always. Fintech alum, Scala speaker in Tokyo, reader of far too many manga.</p>
+          <p className="eyebrow">ENGINEER · FOUNDER</p>
+          <h1>I build software with engineering rigor <span className="dash">-</span><br /><span className="accent">and shonen energy.</span></h1>
+          <p className="lead">Hey there, I'm Kristian 👋🏻. <br/>I love to build things and right now I'm working on <b>AI agents</b> at commercetools and I'm the co-founder of <b>Koomy: the Italy's digital comics platform </b>. As you can guess I'm a big comics and manga fan.</p>
           <div className="button-row">
             <AppLink to="/koomy" navigate={navigate} className="button button-primary">The Koomy story →</AppLink>
             <AppLink to="/contact" navigate={navigate} className="button button-secondary">Get in touch</AppLink>
@@ -137,10 +138,10 @@ function HomePage({ navigate }: { navigate: (path: string) => void }) {
           <aside className="now-panel" aria-label="What Kristian is doing right now">
             <h2>MEANWHILE, RIGHT NOW…</h2>
             <div className="now-grid">
-              <div><strong>READING</strong><span>One Piece — the weekly ritual since forever.</span></div>
-              <div><strong>BUILDING</strong><span>Koomy — bringing digital comics to every reader in Italy.</span></div>
-              <div><strong>TRAINING</strong><span>Frontier AI agents at commercetools — intake flows, automated.</span></div>
-              <div><strong>LAST SEEN</strong><span>On stage at Scala Matsuri, Tokyo — talking Scala in the homeland of manga.</span></div>
+              <div><strong>READING</strong><span>One Piece, the ritual since forever.</span></div>
+              <div><strong>BUILDING</strong><span>Koomy with the ambition to bring digital comics to every reader in Italy.</span></div>
+              <div><strong>TRAINING</strong><span>Frontier AI agents at commercetools leveraging on LLM to automate and cut costs for our customers.</span></div>
+              <div><strong>LAST SEEN</strong><span>On stage at Scala Matsuri in Tokyo talking about Scala in the homeland of manga.</span></div>
             </div>
           </aside>
         </div>
@@ -151,7 +152,28 @@ function HomePage({ navigate }: { navigate: (path: string) => void }) {
           {sagaArcs.map((arc) => <article key={arc.arc} className={arc.featured ? 'arc-card featured-panel' : 'arc-card'}><span>{arc.arc}</span><h3>{arc.title}</h3><p>{arc.body}</p></article>)}
         </div>
       </section>
-      {superMode && <div className="super-mode" role="status"><span>SUPER SAIYAN MODE!!!</span></div>}
+      {sudoMode && (
+        <div className="sudo-mode" role="status" aria-label="sudo mode activated">
+          <div className="sudo-scanlines" aria-hidden="true" />
+          <div className="sudo-terminal">
+            <p className="sudo-line sudo-line-1"><span className="sudo-prompt">$</span> sudo activate</p>
+            <p className="sudo-line sudo-line-2">[sudo] password for kristian: <span className="sudo-asterisk">••••••••</span></p>
+            <p className="sudo-line sudo-line-3"><span className="sudo-ok">✓</span> root access granted.</p>
+            <p className="sudo-line sudo-line-4">&nbsp;</p>
+            <p className="sudo-line sudo-line-5">kernel: Kristian_Lentino/v42.0</p>
+            <p className="sudo-line sudo-line-6">power_level: IT'S OVER 9000</p>
+            <p className="sudo-line sudo-line-7">λ-calculus engine: <span className="sudo-ok">ONLINE</span></p>
+            <p className="sudo-line sudo-line-8">founder mode: <span className="sudo-ok">ENABLED</span></p>
+            <p className="sudo-line sudo-line-9">&nbsp;</p>
+            <p className="sudo-line sudo-line-10"><span className="sudo-prompt">$</span> chmod 777 reality</p>
+            <p className="sudo-line sudo-line-11">chmod: reality: Read-only file system</p>
+            <p className="sudo-line sudo-line-12">&nbsp;</p>
+            <p className="sudo-line sudo-line-13"><span className="sudo-prompt">$</span> npm run world-domination</p>
+            <p className="sudo-line sudo-line-14"><span className="sudo-ok">✓</span> Build succeeded.</p>
+            <p className="sudo-line sudo-line-15"><span className="sudo-prompt">$</span> <span className="sudo-cursor">█</span></p>
+          </div>
+        </div>
+      )}
     </>
   )
 }
@@ -159,14 +181,14 @@ function HomePage({ navigate }: { navigate: (path: string) => void }) {
 const fuelItems = [
   { title: 'TECH & AI', body: "Frontier agents, Scala, full-stack craft. If it ships and solves a real problem, I'm in." },
   { title: 'STARTUPS', body: 'Founder mode since 2023. Bootstrapping Koomy taught me more than any MBA could.' },
-  { title: 'PERSONAL FINANCE', body: 'Loved it so much I joined Moneyfarm — a product I already used — and helped build Share Investing.' },
-  { title: 'COMICS', body: 'So passionate I built a whole company around them.', featured: true },
+  { title: 'PERSONAL FINANCE', body: 'Loved it so much I joined Moneyfarm, a product I already used, and helped build Share Investing and many other investing features.' },
+  { title: 'COMICS', body: 'As you can guess from my website I\'m a big comics fan, so much that I\'ve created my startup based on that.', featured: true },
 ]
 
 const shelfItems = [
   { title: 'Attack on Titan', image: '/assets/attack-on-titan.webp', body: 'Masterclass in long-game plotting. Every founder should study Erwin.' },
   { title: 'Naruto', image: '/assets/naruto.webp', body: 'The underdog grind. Talent is nice; refusing to quit is better.' },
-  { title: 'One Piece', image: '/assets/one-piece.webp', body: "A 25-year vision, executed weekly. That's the startup dream." },
+  { title: 'One Piece', image: '/assets/one-piece.webp', body: "A 29-year vision (with a lot of retcon), executed weekly. That's the startup dream." },
 ]
 
 function AboutPage({ navigate }: { navigate: (path: string) => void }) {
@@ -177,10 +199,10 @@ function AboutPage({ navigate }: { navigate: (path: string) => void }) {
       <div className="about-grid">
         <div className="prose">
           <p>I grew up in Chignolo Po, a small village in Italy. In high school I studied informatics — and honestly, at first I didn't like it at all. Then came a school project: build a videogame. Suddenly coding wasn't homework, it was a superpower. Solving problems and building something from scratch with my own hands hooked me for life.</p>
-          <p>Since then I've shipped full-stack products with real customers, built investment features in Scala at a fintech I personally used and loved, and flown to Tokyo to talk Scala on stage at Scala Matsuri. Today I build frontier AI agents at commercetools, automating intake flows for B2B customers.</p>
-          <p>And because one adventure is never enough: in 2023 I co-founded <AppLink to="/koomy" navigate={navigate}>Koomy</AppLink>, the platform bringing digital comics to Italy — bootstrapped, growing, and very orange.</p>
+          <p>Since then I've shipped full-stack products with real customers, built investment features in Scala at a fintech I personally used and loved, and flown to Tokyo to talk Scala on stage at Scala Matsuri. Today <b>I'm building frontier AI agents</b> at Commercetools, automating intake flows for B2B customers.</p>
+          <p>And because one adventure is never enough: in 2023 I co-founded <AppLink to="/koomy" navigate={navigate}>Koomy</AppLink>, the platform bringing digital comics to Italy entirely bootstrapped.</p>
         </div>
-        <div className="about-media"><MediaSlot src={assetPath('assets/tokyo.webp')} alt="Kristian Lentino speaking in Tokyo" label="casual photo · Tokyo talk?" className="portrait-slot" /><ComicBalloon variant="speech" tone="orange" tail="bottom-right" size="sm" className="village-balloon">Chignolo Po represent!</ComicBalloon></div>
+        <div className="about-media"><MediaSlot src={assetPath('assets/tokyo.webp')} alt="Kristian Lentino speaking in Tokyo" label="casual photo · Tokyo talk?" className="portrait-slot" /><ComicBalloon variant="speech" tone="orange" tail="bottom-right" size="sm" className="village-balloon">Ciao! I'm Kristian 👋🏻</ComicBalloon></div>
       </div>
     </section>
     <section className="content-section container" aria-labelledby="fuel-title"><h2 className="section-kicker section-title" id="fuel-title">WHAT FUELS ME</h2><div className="fuel-grid">{fuelItems.map((item) => <article key={item.title} className={item.featured ? 'compact-panel featured-panel' : 'compact-panel'}><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></section>
@@ -226,7 +248,7 @@ function KoomyPage() {
           </div>
           <div className="phone-wrap">
             <MediaSlot src={assetPath('assets/koomy-reader.webp')} alt="Koomy app home screen with featured comics and navigation" label={'app screenshot\n(home screen)'} className="phone-slot" priority />
-            <ComicBalloon variant="shout" tone="surface" tail="none" size="sm" className="free-balloon">First episode FREE!!!</ComicBalloon>
+            <ComicBalloon variant="shout" tone="surface" tail="none" size="sm" className="free-balloon">Discover our platform!!!</ComicBalloon>
           </div>
         </div>
       </section>
@@ -296,11 +318,11 @@ function KoomyPage() {
 
 const timelineArcs = [
   { year: '2019', tag: 'ARC 1 · FIRST QUEST', title: 'Zucchetti → Dieffetech', body: 'First job out of high school at Zucchetti; five months later, a leap to Dieffetech as a Full-Stack Developer. Real customers, real discussions, real challenges. I started farming EXP in the sector.' },
-  { year: '2022', tag: 'ARC 2 · FINTECH SAGA', title: 'Moneyfarm', body: 'Joined a product I already used and loved. Worked mainly in Scala and helped build the Share Investing proposition, launched in 2024. Personal finance nerd, professionally validated.' },
-  { year: '2023', tag: 'ARC 3 · THE FOUNDING', title: 'Koomy is born', body: "Co-founded Koomy — Italy's digital comics platform. Bootstrapped from zero to 10k+ readers, 1k+ monthly actives, NPS 42, and partnerships with every leading Italian publisher.", featured: true },
+  { year: '2022', tag: 'ARC 2 · FINTECH SAGA', title: 'Moneyfarm', body: 'Joined a product I already used and loved. Worked mainly in Scala and helped build the Share Investing proposition, launched in 2024.' },
+  { year: '2023', tag: 'ARC 3 · THE FOUNDING', title: 'Koomy is born', body: "Co-founded Koomy: Italy's digital comics platform. Bootstrapped from zero to 10k+ readers, 1k+ monthly actives, NPS 42, and partnerships with major Italian publishers such as Panini, Tunué and Edizioni BD.", featured: true },
   { year: '2024', tag: 'ARC 4 · TOKYO CHAPTER', title: 'Scala Matsuri, Tokyo', body: 'Flew to Japan to speak about Scala on stage at Scala Matsuri. A talk in the homeland of manga — the crossover episode.' },
   { year: '2024', tag: 'ARC 5 · NEW GUILD', title: 'commercetools', body: 'Joined commercetools in July 2024. Now responsible for building frontier AI agents that automate intake flows for B2B customers.' },
-  { year: 'NOW', tag: 'ARC 6 · ONGOING', title: 'The Agent Era', body: 'Frontier agents by day, Koomy growth by night, manga in every spare minute. The best arc is always the current one.', featured: true, current: true },
+  { year: 'NOW', tag: 'ARC 6 · ONGOING', title: 'The Agent Era', body: 'Building the next change with Agents during the day and working on Koomy growth during the night. The best arc is always the current one.', featured: true, current: true },
 ]
 
 function TimelinePage() {
@@ -323,11 +345,11 @@ function TimelinePage() {
 
   const tracingClass = isTracing ? ' is-tracing' : ''
 
-  return <><section className="timeline-intro timeline-container"><p className="eyebrow">CHAPTER 3 · ALL ARCS, IN ORDER</p><h1>The timeline<span className="accent">.</span></h1><p className="lead">From a school videogame in Chignolo Po to frontier AI agents and a comics startup. Arc by arc.</p><aside className={`timeline-throughline${tracingClass}`} aria-label="The throughline"><p>THE THROUGHLINE</p><blockquote>Every arc added a new skill. <strong>The founder mindset connected them.</strong></blockquote></aside></section><section ref={timelineRef} className={`timeline-list timeline-container${tracingClass}`} aria-label="Career timeline">{timelineArcs.map((arc, index) => <article className="timeline-item" style={{ '--timeline-delay': `${340 + index * 440}ms` } as CSSProperties} key={`${arc.year}-${arc.title}`}><div className="timeline-year">{arc.year}</div><div className="timeline-track"><span className={[arc.featured && 'featured-dot', arc.current && 'current-dot'].filter(Boolean).join(' ')} data-testid={arc.current ? 'current-timeline-dot' : undefined} />{index < timelineArcs.length - 1 && <i data-testid="timeline-segment" />}</div><div className={arc.featured ? 'timeline-card is-featured' : 'timeline-card'}><div><span>{arc.tag}</span><h2>{arc.title}</h2></div><p>{arc.body}</p></div></article>)}</section></>
+  return <><section className="timeline-intro timeline-container"><p className="eyebrow">CHAPTER 3 · ALL ARCS, IN ORDER</p><h1>The timeline<span className="accent">.</span></h1><p className="lead">From a school videogame in Chignolo Po to frontier AI agents and a comics startup. Arc by arc.</p><aside className={`timeline-throughline${tracingClass}`} aria-label="The throughline"><p>THE THROUGHLINE</p><blockquote>Every arc of this story adds new skills to my arsenal. <br/> <strong>The founder mindset connected them.</strong></blockquote></aside></section><section ref={timelineRef} className={`timeline-list timeline-container${tracingClass}`} aria-label="Career timeline">{timelineArcs.map((arc, index) => <article className="timeline-item" style={{ '--timeline-delay': `${340 + index * 440}ms` } as CSSProperties} key={`${arc.year}-${arc.title}`}><div className="timeline-year">{arc.year}</div><div className="timeline-track"><span className={[arc.featured && 'featured-dot', arc.current && 'current-dot'].filter(Boolean).join(' ')} data-testid={arc.current ? 'current-timeline-dot' : undefined} />{index < timelineArcs.length - 1 && <i data-testid="timeline-segment" />}</div><div className={arc.featured ? 'timeline-card is-featured' : 'timeline-card'}><div><span>{arc.tag}</span><h2>{arc.title}</h2></div><p>{arc.body}</p></div></article>)}</section></>
 }
 
 function ContactPage({ navigate: _navigate }: { navigate?: (path: string) => void }) {
-  return <section className="contact-page container"><div><p className="eyebrow">FINAL CHAPTER · SAY HI</p><h1>Building something? Investing in comics? Just love manga? <span className="accent">Let's talk.</span></h1><div className="contact-lead-row"><p className="lead">I'm always up for conversations about AI agents, startups, personal finance, Scala — or why the Marineford arc still hits different.</p><ComicBalloon variant="whisper" tail="bottom-right" size="sm" className="contact-whisper">Psst… email is the fastest route.</ComicBalloon></div><div className="contact-grid"><a href="https://www.linkedin.com/in/kristian-lentino-941694166/" target="_blank" rel="noreferrer" className="contact-card"><strong>LINKEDIN</strong><h2>Kristian Lentino</h2><span>The professional feed ↗</span></a><a href="mailto:hello@koomy.it" className="contact-card featured-panel"><strong>EMAIL</strong><h2>hello@koomy.it</h2><span>Fastest way to reach me</span></a><a href="https://t.me/KLENTINO99" target="_blank" rel="noreferrer" className="contact-card" aria-label="Telegram KLENTINO99"><strong>TELEGRAM</strong><h2>@KLENTINO99</h2><span>Message me directly ↗</span></a><a href="https://koomy.it" target="_blank" rel="noreferrer" className="contact-card"><strong>KOOMY</strong><h2>koomy.it</h2><span>See what we're building ↗</span></a></div></div></section>
+  return <section className="contact-page container"><div><p className="eyebrow">FINAL CHAPTER · SAY HI</p><h1>Building something? Investing in comics? Just love manga? <span className="accent">Let's talk.</span></h1><div className="contact-lead-row"><p className="lead">I'm always up for conversations about AI agents, startups, personal finance, Scala or why the Marineford arc still hits different.</p><ComicBalloon variant="whisper" tail="bottom-right" size="sm" className="contact-whisper">Psst… email is the fastest route.</ComicBalloon></div><div className="contact-grid"><a href="https://www.linkedin.com/in/kristian-lentino-941694166/" target="_blank" rel="noreferrer" className="contact-card"><strong>LINKEDIN</strong><h2>Kristian Lentino</h2><span>The professional feed ↗</span></a><a href="mailto:hello@koomy.it" className="contact-card featured-panel"><strong>EMAIL</strong><h2>hello@koomy.it</h2><span>Fastest way to reach me</span></a><a href="https://t.me/KLENTINO99" target="_blank" rel="noreferrer" className="contact-card" aria-label="Telegram KLENTINO99"><strong>TELEGRAM</strong><h2>@KLENTINO99</h2><span>Message me directly ↗</span></a><a href="https://koomy.it" target="_blank" rel="noreferrer" className="contact-card"><strong>KOOMY</strong><h2>koomy.it</h2><span>See what we're building ↗</span></a></div></div></section>
 }
 
 export default function App() {
