@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { expect } from 'storybook/test'
+import { expect, waitFor } from 'storybook/test'
 import MediaSlot from './MediaSlot'
 
 const meta = {
@@ -23,7 +23,7 @@ export const Default: Story = {
 export const MissingImage: Story = {
   args: { src: '/assets/nonexistent.webp' },
   play: async ({ canvas }) => {
-    await expect(canvas.getByText('Image failed to load')).toBeVisible()
+    await waitFor(() => expect(canvas.getByText('Image failed to load')).toBeVisible())
   },
 }
 
@@ -42,8 +42,9 @@ export const Priority: Story = {
 export const CssCheck: Story = {
   args: { src: '/assets/nonexistent.webp', className: 'portrait-slot' },
   play: async ({ canvas }) => {
-    const el = canvas.getByText('Image failed to load').closest('.media-slot') as HTMLElement
-    // The media-slot should have the repeating-linear-gradient background
-    await expect(getComputedStyle(el).backgroundImage).toContain('repeating-linear-gradient')
+    await waitFor(() => {
+      const el = canvas.getByText('Image failed to load').closest('.media-slot') as HTMLElement
+      expect(getComputedStyle(el).backgroundImage).toContain('repeating-linear-gradient')
+    })
   },
 }
