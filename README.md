@@ -4,18 +4,19 @@
 
 The source for [kristianlentino.it](https://kristianlentino.it), an editorial founder portfolio combining production engineering, AI work, and the story behind [Koomy](https://koomy.it).
 
-![Portfolio preview](public/og-image.png)
+![Portfolio preview](public/screenshot.png)
 
 ## Stack
 
 - React 19 and TypeScript
 - Vite
 - Vitest, Testing Library, Playwright, and Storybook
+- Google Analytics (GA4) with CookieYes consent management
 - GitHub Actions and GitHub Pages
 
 ## Local development
 
-Node.js 22 or newer is required.
+Node.js 24 or newer is required.
 
 ```bash
 npm ci
