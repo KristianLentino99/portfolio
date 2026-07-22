@@ -1,11 +1,21 @@
-import { access, mkdtemp, readFile, readdir, rename, rm, stat, writeFile } from 'node:fs/promises'
+import { access, mkdtemp, readdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import sharp from 'sharp'
 
 const RASTER_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg'])
-const REFERENCE_EXTENSIONS = new Set(['.css', '.html', '.js', '.jsx', '.json', '.md', '.mjs', '.ts', '.tsx'])
+const REFERENCE_EXTENSIONS = new Set([
+  '.css',
+  '.html',
+  '.js',
+  '.jsx',
+  '.json',
+  '.md',
+  '.mjs',
+  '.ts',
+  '.tsx',
+])
 const IGNORED_DIRECTORIES = new Set(['.git', '.cache', 'dist', 'node_modules'])
 const DEFAULT_PROTECTED_PNGS = new Set(['og-image.png'])
 
@@ -83,7 +93,9 @@ async function optimizeProtectedPng(filePath) {
 async function rewriteReferences(rootDir, replacements) {
   if (replacements.length === 0) return 0
 
-  const files = await walk(rootDir, (filePath) => REFERENCE_EXTENSIONS.has(path.extname(filePath).toLowerCase()))
+  const files = await walk(rootDir, (filePath) =>
+    REFERENCE_EXTENSIONS.has(path.extname(filePath).toLowerCase()),
+  )
   let changedFiles = 0
 
   for (const filePath of files) {
@@ -108,7 +120,9 @@ export async function optimizeImages({
   logger = console,
 } = {}) {
   const publicDir = path.resolve(rootDir, publicDirectory)
-  const rasterFiles = await walk(publicDir, (filePath) => RASTER_EXTENSIONS.has(path.extname(filePath).toLowerCase()))
+  const rasterFiles = await walk(publicDir, (filePath) =>
+    RASTER_EXTENSIONS.has(path.extname(filePath).toLowerCase()),
+  )
   const replacements = []
   const originalsToRemove = []
   let converted = 0
@@ -123,7 +137,7 @@ export async function optimizeImages({
       continue
     }
 
-    const outputPath = sourcePath.slice(0, -extension.length) + '.webp'
+    const outputPath = `${sourcePath.slice(0, -extension.length)}.webp`
     if (await convertToWebp(sourcePath, outputPath, maxDimension)) converted += 1
 
     replacements.push({
@@ -143,7 +157,8 @@ export async function optimizeImages({
   return { converted, optimized, rewrittenFiles }
 }
 
-const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href
+const isDirectRun =
+  process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href
 if (isDirectRun) {
   optimizeImages().catch((error) => {
     console.error(`[images] ${error instanceof Error ? error.message : String(error)}`)

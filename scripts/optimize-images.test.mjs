@@ -1,15 +1,19 @@
 import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
-import { afterEach, describe, expect, it } from 'vitest'
 import sharp from 'sharp'
+import { afterEach, describe, expect, it } from 'vitest'
 import { optimizeImages } from './optimize-images.mjs'
 
 const temporaryDirectories = []
 const silentLogger = { log() {}, warn() {} }
 
 afterEach(async () => {
-  await Promise.all(temporaryDirectories.splice(0).map((directory) => rm(directory, { recursive: true, force: true })))
+  await Promise.all(
+    temporaryDirectories
+      .splice(0)
+      .map((directory) => rm(directory, { recursive: true, force: true })),
+  )
 })
 
 async function createFixture() {

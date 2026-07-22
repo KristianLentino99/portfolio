@@ -15,7 +15,12 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "npm test && npm run build",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "quality": "biome check .",
+    "check": "npm run quality && npm test -- --project '!storybook' && npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -24,6 +29,7 @@
     "react-dom": "19.2.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.5",
     "@chromatic-com/storybook": "^5.2.1",
     "@storybook/addon-a11y": "^10.5.3",
     "@storybook/addon-docs": "^10.5.3",
