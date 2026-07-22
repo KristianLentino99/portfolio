@@ -4,7 +4,7 @@
 
 The source for [kristianlentino.it](https://kristianlentino.it), an editorial founder portfolio combining production engineering, AI work, and the story behind [Koomy](https://koomy.it).
 
-![Portfolio preview](public/screenshot.png)
+![Portfolio preview](public/screenshot.webp)
 
 ## Stack
 
