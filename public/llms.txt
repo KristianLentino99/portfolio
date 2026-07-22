@@ -1,0 +1,21 @@
+# Kristian Lentino
+
+> Engineer, AI builder, and co-founder of Koomy — Italy's digital comics platform.
+
+## Pages
+
+- [Home](https://kristianlentino.it/): Editorial founder portfolio — engineering, AI work, and the Koomy story.
+- [About](https://kristianlentino.it/about): Background, expertise, manga taste, and personal arc.
+- [Koomy](https://kristianlentino.it/koomy): What Koomy is, how it works, and the mission behind it.
+- [Timeline](https://kristianlentino.it/timeline): Career milestones and key projects.
+
+## Tech stack
+
+- React 19, TypeScript, Vite
+- Vitest, Testing Library, Playwright, Storybook
+- Google Analytics (GA4) with CookieYes consent management
+- GitHub Actions CI/CD deploying to GitHub Pages
+
+## Source
+
+https://github.com/KristianLentino99/portfolio
