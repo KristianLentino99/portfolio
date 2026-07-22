@@ -165,11 +165,10 @@ export default function KoomyPage() {
 
       <section className="koomy-exclusive container" aria-labelledby="exclusive-title">
         <div>
-          <span className="section-kicker">DIGITAL EXCLUSIVE · TUNUÈ</span>
+          <span className="section-kicker">One goal I’m quite proud of:</span>
           <h2 id="exclusive-title">Monster Allergy arrives in a format made for screens.</h2>
           <p>
-            Ten volumes and thirty episodes from Centomo and Artibani, illustrated by Barbucci and
-            Canepa. The first episode is free.
+            We were able to publish digitally, thanks to the collaboration with Tunuè, one of the most famous Italian IP in the early 2000. Ten volumes arranged in a new format with thirty episodes with first episode free for everyone!
           </p>
         </div>
         <a
@@ -178,7 +177,7 @@ export default function KoomyPage() {
           target="_blank"
           rel="noreferrer"
         >
-          Discover the saga ↗
+          Learn more about it ↗
         </a>
       </section>
 
