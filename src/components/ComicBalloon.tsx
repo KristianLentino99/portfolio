@@ -29,7 +29,9 @@ export default function ComicBalloon({
     `comic-balloon--${size}`,
     `comic-balloon--tail-${tail}`,
     className,
-  ].filter(Boolean).join(' ')
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <aside className={classes} role="note" {...props}>

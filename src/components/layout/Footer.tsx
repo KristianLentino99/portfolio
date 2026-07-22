@@ -1,20 +1,25 @@
+import type { RoutePath } from '../../routing'
 import AppLink from '../AppLink'
+import LinkedInLink from '../social/LinkedInLink'
 
 export interface FooterNext {
-  path: string
+  path: RoutePath
   label: string
 }
 
 interface FooterProps {
-  path: string
-  onNavigate: (path: string) => void
+  path: RoutePath
+  onNavigate: (path: RoutePath) => void
   next?: FooterNext
 }
 
 export default function Footer({ path, onNavigate, next }: FooterProps) {
   return (
     <footer className="site-footer">
-      <span>© 2026 Kristian Lentino · Italy</span>
+      <div className="footer-left">
+        <span>© 2026 Kristian Lentino · Italy</span>
+        <LinkedInLink className="footer-social-link" showLabel={false} iconSize={16} />
+      </div>
       {next ? (
         <AppLink to={next.path} navigate={onNavigate} className="footer-link">
           {next.label}

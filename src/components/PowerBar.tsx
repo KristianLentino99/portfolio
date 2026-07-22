@@ -9,7 +9,13 @@ export default function PowerBar({ value, className = '' }: PowerBarProps) {
   const classes = `power-bar ${className}`.trim()
 
   return (
-    <div className={classes} role="progressbar" aria-valuenow={clamped} aria-valuemin={0} aria-valuemax={100}>
+    <div
+      className={classes}
+      role="progressbar"
+      aria-valuenow={clamped}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
       <span style={{ width: `${clamped}%` }} />
     </div>
   )

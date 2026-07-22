@@ -80,7 +80,9 @@ export default function CharacterPanel() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const gear = CHARACTER_GEARS[selectedIndex]
   const selectGear = (direction: -1 | 1) => {
-    setSelectedIndex((current) => (current + direction + CHARACTER_GEARS.length) % CHARACTER_GEARS.length)
+    setSelectedIndex(
+      (current) => (current + direction + CHARACTER_GEARS.length) % CHARACTER_GEARS.length,
+    )
   }
 
   return (
@@ -88,33 +90,79 @@ export default function CharacterPanel() {
       <div className="character-card">
         <div className="select-label">SELECT YOUR KRISTIAN</div>
         <div className="avatar-wrap gear-swap" key={gear.id}>
-          <MediaSlot src={assetPath(gear.image)} alt={gear.alt} label={`${gear.name} avatar`} className="avatar-slot" />
+          <MediaSlot
+            src={assetPath(gear.image)}
+            alt={gear.alt}
+            label={`${gear.name} avatar`}
+            className="avatar-slot"
+          />
           {gear.badges.map((badge, index) => (
-            <span className={`gear-badge badge-${index + 1}`} title={badge.label} aria-hidden="true" key={badge.label}>{badge.symbol}</span>
+            <span
+              className={`gear-badge badge-${index + 1}`}
+              title={badge.label}
+              aria-hidden="true"
+              key={badge.label}
+            >
+              {badge.symbol}
+            </span>
           ))}
         </div>
         <div className="gear-caption">
-          <button type="button" className="gear-nav" onClick={() => selectGear(-1)} aria-label={`Previous gear: ${CHARACTER_GEARS[(selectedIndex - 1 + CHARACTER_GEARS.length) % CHARACTER_GEARS.length].name}`}>←</button>
-          <strong aria-live="polite">SET {selectedIndex + 1} / {CHARACTER_GEARS.length} · {gear.name}</strong>
-          <button type="button" className="gear-nav" onClick={() => selectGear(1)} aria-label={`Next gear: ${CHARACTER_GEARS[(selectedIndex + 1) % CHARACTER_GEARS.length].name}`}>→</button>
+          <button
+            type="button"
+            className="gear-nav"
+            onClick={() => selectGear(-1)}
+            aria-label={`Previous gear: ${CHARACTER_GEARS[(selectedIndex - 1 + CHARACTER_GEARS.length) % CHARACTER_GEARS.length].name}`}
+          >
+            ←
+          </button>
+          <strong aria-live="polite">
+            SET {selectedIndex + 1} / {CHARACTER_GEARS.length} · {gear.name}
+          </strong>
+          <button
+            type="button"
+            className="gear-nav"
+            onClick={() => selectGear(1)}
+            aria-label={`Next gear: ${CHARACTER_GEARS[(selectedIndex + 1) % CHARACTER_GEARS.length].name}`}
+          >
+            →
+          </button>
         </div>
       </div>
 
       <div className="stats-panel gear-swap" key={`${gear.id}-stats`}>
-        <div className="section-kicker" id="character-heading">CHARACTER STATS</div>
+        <div className="section-kicker" id="character-heading">
+          CHARACTER STATS
+        </div>
         <h2 className="display-name">KRISTIAN LENTINO</h2>
         <p className="gear-role">{gear.role}</p>
-        <div className="level-row"><strong>{gear.level}</strong><span>{gear.nextQuest}<span className="cursor">▮</span></span></div>
+        <div className="level-row">
+          <strong>{gear.level}</strong>
+          <span>
+            {gear.nextQuest}
+            <span className="cursor">▮</span>
+          </span>
+        </div>
         <PowerBar value={gear.xp} className="xp-bar" />
         <div className="power-list">
           {gear.stats.map((stat) => (
             <div key={stat.name}>
-              <div className="power-label"><strong>{stat.name}</strong><span>{stat.level}</span></div>
+              <div className="power-label">
+                <strong>{stat.name}</strong>
+                <span>{stat.level}</span>
+              </div>
               <PowerBar value={stat.value} />
             </div>
           ))}
         </div>
-        <div className="moves"><strong>SPECIAL MOVES:</strong>{gear.moves.map((move) => <span className={move.featured ? 'move-featured' : undefined} key={move.name}>{move.name}</span>)}</div>
+        <div className="moves">
+          <strong>SPECIAL MOVES:</strong>
+          {gear.moves.map((move) => (
+            <span className={move.featured ? 'move-featured' : undefined} key={move.name}>
+              {move.name}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   )

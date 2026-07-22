@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react'
+import type { RoutePath } from '../../routing'
 import AppLink from '../AppLink'
 
 interface NavItem {
-  path: string
+  path: RoutePath
   label: string
 }
 
 interface HeaderProps {
-  path: string
+  path: RoutePath
   items: NavItem[]
   theme: 'light' | 'dark'
-  onNavigate: (path: string) => void
+  onNavigate: (path: RoutePath) => void
   onToggleTheme: () => void
 }
 
 export default function Header({ path, items, theme, onNavigate, onToggleTheme }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: A route change closes the mobile menu.
   useEffect(() => setMenuOpen(false), [path])
 
   useEffect(() => {
@@ -30,7 +32,12 @@ export default function Header({ path, items, theme, onNavigate, onToggleTheme }
 
   return (
     <header className="site-header">
-      <AppLink to="/" navigate={onNavigate} className="wordmark" aria-label="Kristian Lentino, home">
+      <AppLink
+        to="/"
+        navigate={onNavigate}
+        className="wordmark"
+        aria-label="Kristian Lentino, home"
+      >
         KL<span>.</span>
       </AppLink>
 

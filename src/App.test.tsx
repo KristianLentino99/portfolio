@@ -22,14 +22,18 @@ describe('portfolio shell', () => {
 
   it('renders the founder positioning and primary navigation', () => {
     render(<App />)
-    expect(screen.getByRole('heading', { level: 1, name: /engineering rigor/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 1, name: /engineering rigor/i }),
+    ).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: /primary/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /the koomy story/i })).toHaveAttribute('href', '/koomy')
   })
 
   it('points the hero thought balloon toward the portrait subject', () => {
     render(<App />)
-    expect(screen.getByText('What should we build next?').closest('aside')).toHaveClass('comic-balloon--tail-bottom-left')
+    expect(screen.getByText('What should we build next?').closest('aside')).toHaveClass(
+      'comic-balloon--tail-bottom-left',
+    )
   })
 
   it('switches the complete character loadout with the selected gear', () => {
@@ -44,7 +48,10 @@ describe('portfolio shell', () => {
     expect(screen.getByText(/builder gear · ship the system/i)).toBeInTheDocument()
     expect(screen.getByText('SHIPPING VELOCITY')).toBeInTheDocument()
     expect(screen.getByText('Type-Safe Strike')).toBeInTheDocument()
-    expect(screen.getByRole('img', { name: /builder gear avatar/i })).toHaveAttribute('src', '/assets/avatars/building_mode.webp')
+    expect(screen.getByRole('img', { name: /builder gear avatar/i })).toHaveAttribute(
+      'src',
+      '/assets/avatars/building_mode.webp',
+    )
   })
 
   it('renders sudo mode at the viewport root', () => {
@@ -58,7 +65,9 @@ describe('portfolio shell', () => {
   it('navigates between portfolio routes without a full reload', () => {
     render(<App />)
     fireEvent.click(screen.getByRole('link', { name: 'About' }))
-    expect(screen.getByRole('heading', { level: 1, name: /everything changed/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 1, name: /everything changed/i }),
+    ).toBeInTheDocument()
     expect(window.location.pathname).toBe('/about')
     expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
   })
@@ -137,8 +146,14 @@ describe('portfolio shell', () => {
   it('connects the Koomy product story to its reader-first origin', () => {
     window.history.replaceState({}, '', '/koomy')
     render(<App />)
-    expect(screen.getByRole('img', { name: 'Koomy' })).toHaveAttribute('src', '/assets/koomy-logo.webp')
-    expect(screen.getByRole('img', { name: /koomy app home screen/i })).toHaveAttribute('src', '/assets/koomy-reader.webp')
+    expect(screen.getByRole('img', { name: 'Koomy' })).toHaveAttribute(
+      'src',
+      '/assets/koomy-logo.webp',
+    )
+    expect(screen.getByRole('img', { name: /koomy app home screen/i })).toHaveAttribute(
+      'src',
+      '/assets/koomy-reader.webp',
+    )
     expect(screen.getByText('The Burger King question')).toBeInTheDocument()
     expect(screen.getByText(/10% free preview/i)).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /not replacing paper/i })).toBeInTheDocument()
@@ -147,7 +162,9 @@ describe('portfolio shell', () => {
   it('frames the timeline thesis as the throughline into the career arcs', () => {
     window.history.replaceState({}, '', '/timeline')
     render(<App />)
-    expect(screen.getByRole('complementary', { name: /the throughline/i })).toHaveTextContent(/founder mindset connected them/i)
+    expect(screen.getByRole('complementary', { name: /the throughline/i })).toHaveTextContent(
+      /founder mindset connected them/i,
+    )
     expect(screen.getByRole('region', { name: /career timeline/i })).toHaveClass('is-tracing')
     expect(screen.getAllByTestId('timeline-segment')).toHaveLength(5)
     expect(screen.getByTestId('current-timeline-dot')).toHaveClass('current-dot')
@@ -157,7 +174,10 @@ describe('portfolio shell', () => {
   it('offers Telegram as a direct contact channel', () => {
     window.history.replaceState({}, '', '/contact')
     render(<App />)
-    expect(screen.getByRole('link', { name: /telegram klentino99/i })).toHaveAttribute('href', 'https://t.me/KLENTINO99')
+    expect(screen.getByRole('link', { name: /telegram klentino99/i })).toHaveAttribute(
+      'href',
+      'https://t.me/KLENTINO99',
+    )
   })
 })
 
@@ -166,6 +186,8 @@ describe('deployment paths', () => {
     expect(toBrowserPath('/timeline', '/portfolio/')).toBe('/portfolio/timeline')
     expect(toBrowserPath('/', '/portfolio/')).toBe('/portfolio/')
     expect(fromBrowserPath('/portfolio/timeline', '/portfolio/')).toBe('/timeline')
-    expect(assetPath('assets/koomy-logo.webp', '/portfolio/')).toBe('/portfolio/assets/koomy-logo.webp')
+    expect(assetPath('assets/koomy-logo.webp', '/portfolio/')).toBe(
+      '/portfolio/assets/koomy-logo.webp',
+    )
   })
 })

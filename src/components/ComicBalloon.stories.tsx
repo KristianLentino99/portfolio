@@ -34,7 +34,11 @@ type Story = StoryObj<typeof meta>
 // ── Variant gallery ──────────────────────────────────────────────
 
 export const Speech: Story = {
-  args: { variant: 'speech', tail: 'bottom-left', children: 'I build software with engineering rigor.' },
+  args: {
+    variant: 'speech',
+    tail: 'bottom-left',
+    children: 'I build software with engineering rigor.',
+  },
   play: async ({ canvas }) => {
     await expect(canvas.getByText(/engineering rigor/)).toBeVisible()
   },
@@ -53,7 +57,12 @@ export const Whisper: Story = {
 }
 
 export const Narration: Story = {
-  args: { variant: 'narration', tone: 'orange', children: 'Every arc of this story adds new skills to my arsenal. The founder mindset connected them.' },
+  args: {
+    variant: 'narration',
+    tone: 'orange',
+    children:
+      'Every arc of this story adds new skills to my arsenal. The founder mindset connected them.',
+  },
 }
 
 // ── Tone variants ─────────────────────────────────────────────────

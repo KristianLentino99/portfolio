@@ -34,7 +34,11 @@ export const Wordmark: Story = {
     to: '/',
     className: 'wordmark',
     'aria-label': 'Kristian Lentino, home',
-    children: <>KL<span>.</span></>,
+    children: (
+      <>
+        KL<span>.</span>
+      </>
+    ),
   },
 }
 

@@ -1,9 +1,9 @@
-import { type MouseEvent, type ReactNode } from 'react'
-import { toBrowserPath } from '../routing'
+import type { MouseEvent, ReactNode } from 'react'
+import { type RoutePath, toBrowserPath } from '../routing'
 
 export interface AppLinkProps {
-  to: string
-  navigate: (path: string) => void
+  to: RoutePath
+  navigate: (path: RoutePath) => void
   children: ReactNode
   className?: string
   onNavigate?: () => void
@@ -21,7 +21,8 @@ export default function AppLink({
   'aria-current': ariaCurrent,
 }: AppLinkProps) {
   const onClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+      return
     event.preventDefault()
     navigate(to)
     onNavigate?.()

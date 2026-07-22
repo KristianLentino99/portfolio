@@ -1,19 +1,20 @@
 import type { ReactNode } from 'react'
-import Header from './Header'
+import type { RoutePath } from '../../routing'
 import Footer, { type FooterNext } from './Footer'
+import Header from './Header'
 
 interface NavItem {
-  path: string
+  path: RoutePath
   label: string
 }
 
 interface PageShellProps {
-  path: string
+  path: RoutePath
   items: NavItem[]
   theme: 'light' | 'dark'
   children: ReactNode
   footer?: FooterNext
-  onNavigate: (path: string) => void
+  onNavigate: (path: RoutePath) => void
   onToggleTheme: () => void
 }
 

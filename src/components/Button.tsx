@@ -1,4 +1,4 @@
-import type { ReactNode, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
 type ButtonVariant = 'primary' | 'secondary'
 
@@ -24,13 +24,14 @@ type ButtonAsButton = ButtonBaseProps &
 export type ButtonProps = ButtonAsLink | ButtonAsButton
 
 export default function Button(props: ButtonProps) {
-  const { variant = 'primary', children, className = '', ...rest } = props
+  const { variant = 'primary', children, className = '' } = props
 
   const variantClass = variant === 'primary' ? 'button-primary' : 'button-secondary'
   const classes = `button ${variantClass} ${className}`.trim()
 
   if ('href' in props && props.href) {
-    const { /* eslint-disable @typescript-eslint/no-unused-vars */ variant: _, ...linkRest } = props as ButtonAsLink
+    const { /* eslint-disable @typescript-eslint/no-unused-vars */ variant: _, ...linkRest } =
+      props as ButtonAsLink
     return (
       <a className={classes} {...linkRest}>
         {children}
@@ -38,7 +39,8 @@ export default function Button(props: ButtonProps) {
     )
   }
 
-  const { /* eslint-disable @typescript-eslint/no-unused-vars */ variant: _, ...btnRest } = props as ButtonAsButton
+  const { /* eslint-disable @typescript-eslint/no-unused-vars */ variant: _, ...btnRest } =
+    props as ButtonAsButton
   return (
     <button className={classes} type={(props as ButtonAsButton).type ?? 'button'} {...btnRest}>
       {children}
