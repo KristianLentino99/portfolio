@@ -52,7 +52,7 @@ The Pages artifact includes a `404.html` fallback, so client-side routes also wo
 https://kristianlentino.it/
 ```
 
-The workflow enables GitHub Pages on its first successful deployment and the repository includes `public/CNAME`. The custom domain must still be confirmed in **Settings → Pages**, and its DNS records must point to GitHub Pages. Keep the current Aruba records in place until the first Pages deployment is healthy, then switch DNS to avoid unnecessary downtime.
+GitHub Pages is configured to use GitHub Actions, and the repository includes `public/CNAME`. The custom domain must still be confirmed in **Settings → Pages**, and its DNS records must point to GitHub Pages. Keep the current Aruba records in place until the Pages deployment is healthy, then switch DNS to avoid unnecessary downtime.
 
 ## Images
 
