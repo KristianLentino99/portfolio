@@ -93,7 +93,6 @@ export default function CharacterPanel() {
           <MediaSlot
             src={assetPath(gear.image)}
             alt={gear.alt}
-            label={`${gear.name} avatar`}
             className="avatar-slot"
           />
           {gear.badges.map((badge, index) => (

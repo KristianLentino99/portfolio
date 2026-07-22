@@ -8,7 +8,6 @@ const meta = {
   args: {
     src: '/assets/Kristian_Lentino.webp',
     alt: 'Portrait of Kristian Lentino',
-    label: 'portrait photo',
   },
 } satisfies Meta<typeof MediaSlot>
 
@@ -17,24 +16,23 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   play: async ({ canvas }) => {
-    await expect(canvas.getByText('portrait photo')).toBeVisible()
+    await expect(canvas.getByText('Loading…')).toBeVisible()
   },
 }
 
 export const MissingImage: Story = {
-  args: { src: '/assets/nonexistent.webp', label: 'missing image' },
+  args: { src: '/assets/nonexistent.webp' },
   play: async ({ canvas }) => {
-    // The label should remain visible when the image fails to load
-    await expect(canvas.getByText('missing image')).toBeVisible()
+    await expect(canvas.getByText('Image failed to load')).toBeVisible()
   },
 }
 
 export const WithAspectRatio: Story = {
-  args: { className: 'portrait-slot', label: '4:5 placeholder' },
+  args: { className: 'portrait-slot' },
 }
 
 export const CoverSlot: Story = {
-  args: { className: 'cover-slot', label: 'cover', alt: 'Manga cover' },
+  args: { className: 'cover-slot', alt: 'Manga cover' },
 }
 
 export const Priority: Story = {
@@ -42,9 +40,9 @@ export const Priority: Story = {
 }
 
 export const CssCheck: Story = {
-  args: { src: '/assets/nonexistent.webp', label: 'css check', className: 'portrait-slot' },
+  args: { src: '/assets/nonexistent.webp', className: 'portrait-slot' },
   play: async ({ canvas }) => {
-    const el = canvas.getByText('css check').closest('.media-slot') as HTMLElement
+    const el = canvas.getByText('Image failed to load').closest('.media-slot') as HTMLElement
     // The media-slot should have the repeating-linear-gradient background
     await expect(getComputedStyle(el).backgroundImage).toContain('repeating-linear-gradient')
   },

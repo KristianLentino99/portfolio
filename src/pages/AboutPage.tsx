@@ -85,7 +85,6 @@ export default function AboutPage({ navigate }: AboutPageProps) {
             <MediaSlot
               src={assetPath('assets/tokyo.webp')}
               alt="Kristian Lentino speaking in Tokyo"
-              label="casual photo · Tokyo talk?"
               className="portrait-slot"
             />
             <ComicBalloon
@@ -126,7 +125,6 @@ export default function AboutPage({ navigate }: AboutPageProps) {
               <MediaSlot
                 src={item.image}
                 alt={`${item.title} manga cover`}
-                label="cover"
                 className="cover-slot"
               />
               <div>

@@ -88,7 +88,6 @@ export default function HomePage({ navigate }: HomePageProps) {
           <MediaSlot
             src={assetPath('assets/Kristian_Lentino.webp')}
             alt="Portrait of Kristian Lentino"
-            label="portrait photo"
             className="portrait-slot"
             priority
           />

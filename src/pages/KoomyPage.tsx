@@ -48,7 +48,6 @@ export default function KoomyPage() {
             <MediaSlot
               src={assetPath('assets/koomy-reader.webp')}
               alt="Koomy app home screen with featured comics and navigation"
-              label={'app screenshot\n(home screen)'}
               className="phone-slot"
               priority
             />

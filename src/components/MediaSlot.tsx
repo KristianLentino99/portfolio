@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react'
 export interface MediaSlotProps {
   src: string
   alt: string
-  label: string
   className?: string
   priority?: boolean
 }
@@ -13,7 +12,6 @@ type ImageState = 'loading' | 'loaded' | 'failed'
 export default function MediaSlot({
   src,
   alt,
-  label,
   className = '',
   priority = false,
 }: MediaSlotProps) {
@@ -46,9 +44,9 @@ export default function MediaSlot({
 
   return (
     <div className={`media-slot${isLoading ? ' is-loading' : ''} ${className}`.trim()}>
-      {/* Label visible while loading or failed */}
+      {/* Loading indicator */}
       <span className="media-label" aria-hidden={state === 'loaded' ? 'true' : undefined}>
-        {label}
+        {state === 'loading' ? 'Loading…' : 'Image failed to load'}
       </span>
 
       {state !== 'failed' && (
