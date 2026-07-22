@@ -69,7 +69,7 @@ describe('portfolio shell', () => {
     fireEvent.click(screen.getByRole('button', { name: /next gear/i }))
 
     expect(screen.getByText(/builder gear · ship the system/i)).toBeInTheDocument()
-    expect(screen.getByText('SHIPPING VELOCITY')).toBeInTheDocument()
+    expect(screen.getByText('PRODUCT ENGINEERING')).toBeInTheDocument()
     expect(screen.getByText('Type-Safe Strike')).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /builder gear avatar/i })).toHaveAttribute(
       'src',
