@@ -12,7 +12,7 @@ export default function ContactPage() {
         </h1>
         <div className="contact-lead-row">
           <p className="lead">
-            I'm always up for conversations about AI agents, startups, personal finance, Scala or
+            I'm always up for conversations about AI agents, startups, personal finance, Programming or
             why the Marineford arc still hits different.
           </p>
           <ComicBalloon variant="whisper" tail="bottom-right" size="sm" className="contact-whisper">

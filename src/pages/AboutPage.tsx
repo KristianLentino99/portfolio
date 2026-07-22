@@ -11,7 +11,7 @@ interface AboutPageProps {
 const fuelItems = [
   {
     title: 'TECH & AI',
-    body: "Frontier agents, Scala, full-stack craft. If it ships and solves a real problem, I'm in.",
+    body: "Agents, Programming, Software Architecture, full-stack craft. If it can be shipped and solves a real problem, I'm in.",
   },
   {
     title: 'STARTUPS',
@@ -32,12 +32,12 @@ const shelfItems = [
   {
     title: 'Attack on Titan',
     image: '/assets/attack-on-titan.webp',
-    body: 'Masterclass in long-game plotting. Every founder should study Erwin.',
+    body: 'Masterclass in long-game plotting and unexpected sudden pivot. Every founder should read this.',
   },
   {
     title: 'Naruto',
     image: '/assets/naruto.webp',
-    body: 'The underdog grind. Talent is nice but refusing to quit and achieve your goal is even better.',
+    body: 'The underdog grind. Talent is nice but refusing to quit and achieve your goal is even better. Still singing the italian opening even today.',
   },
   {
     title: 'One Piece',
@@ -59,16 +59,16 @@ export default function AboutPage({ navigate }: AboutPageProps) {
           <div className="prose">
             <p>
               I grew up in Chignolo Po, a small village in Italy. In high school I studied
-              informatics — and honestly, at first I didn't like it at all. Then came a school
-              project: build a videogame. Suddenly coding wasn't homework, it was a superpower.
-              Solving problems and building something from scratch with my own hands hooked me for
-              life.
+              informatics but I wasn't particularly passionate about the topic and honestly, at first I didn't like it at all. Then came a school
+              project: build a videogame for a competition between school classes. Suddenly coding wasn't homework, it was a superpower.
+              Solving problems and building something from scratch with my own hands hooked me for life. Even today, with the big wave of changing that AI is bringing, create new products is always super satisfying. <br/>
+              <b>Coding was never the goal, it has been always the medium </b> and AI helped me realize that. 
             </p>
             <p>
-              Since then I've shipped full-stack products with real customers, built investment
+              Since 2019 I've shipped full-stack products with real customers, built investment
               features in Scala at a fintech I personally used and loved, and flown to Tokyo to talk
               Scala on stage at Scala Matsuri. Today <b>I'm building frontier AI agents</b> at
-              Commercetools, automating intake flows for B2B customers.
+              Commercetools, automating intake flows for B2B customers and help them be successful by cutting their time spent on manual tasks.
             </p>
             <p>
               And because one adventure is never enough: in 2023 I co-founded{' '}
@@ -84,7 +84,7 @@ export default function AboutPage({ navigate }: AboutPageProps) {
           <div className="about-media">
             <MediaSlot
               src={assetPath('assets/tokyo.webp')}
-              alt="Kristian Lentino speaking in Tokyo"
+              alt="Kristian Lentino in Japan"
               className="portrait-slot"
             />
             <ComicBalloon
@@ -101,7 +101,7 @@ export default function AboutPage({ navigate }: AboutPageProps) {
       </section>
       <section className="content-section container" aria-labelledby="fuel-title">
         <h2 className="section-kicker section-title" id="fuel-title">
-          WHAT FUELS ME
+          WHAT ENERGIZE ME
         </h2>
         <div className="fuel-grid">
           {fuelItems.map((item) => (
