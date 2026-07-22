@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { createPortal } from 'react-dom'
 import AppLink from './components/AppLink'
 import Button from './components/Button'
 import CharacterPanel from './components/CharacterPanel'
@@ -152,7 +153,7 @@ function HomePage({ navigate }: { navigate: (path: string) => void }) {
           {sagaArcs.map((arc) => <article key={arc.arc} className={arc.featured ? 'arc-card featured-panel' : 'arc-card'}><span>{arc.arc}</span><h3>{arc.title}</h3><p>{arc.body}</p></article>)}
         </div>
       </section>
-      {sudoMode && (
+      {sudoMode && createPortal(
         <div className="sudo-mode" role="status" aria-label="sudo mode activated">
           <div className="sudo-scanlines" aria-hidden="true" />
           <div className="sudo-terminal">
@@ -172,7 +173,8 @@ function HomePage({ navigate }: { navigate: (path: string) => void }) {
             <p className="sudo-line sudo-line-14"><span className="sudo-ok">✓</span> Build succeeded.</p>
             <p className="sudo-line sudo-line-15"><span className="sudo-prompt">$</span> <span className="sudo-cursor">█</span></p>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   )

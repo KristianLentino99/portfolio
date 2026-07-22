@@ -47,6 +47,14 @@ describe('portfolio shell', () => {
     expect(screen.getByRole('img', { name: /builder gear avatar/i })).toHaveAttribute('src', '/assets/avatars/building_mode.webp')
   })
 
+  it('renders sudo mode at the viewport root', () => {
+    render(<App />)
+    for (const key of ['s', 'u', 'd', 'o']) fireEvent.keyDown(window, { key })
+
+    const sudoMode = screen.getByRole('status', { name: /sudo mode activated/i })
+    expect(sudoMode.parentElement).toBe(document.body)
+  })
+
   it('navigates between portfolio routes without a full reload', () => {
     render(<App />)
     fireEvent.click(screen.getByRole('link', { name: 'About' }))

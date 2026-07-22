@@ -272,7 +272,7 @@
   .arc-card span { color: var(--label); font-family: 'Bangers', cursive; font-size: 15px; }
   .arc-card h3 { margin: 4px 0 3px; font-size: 14.5px; }
   .arc-card p { margin: 0; color: var(--muted-2); font-size: 12px; line-height: 1.45; }
-  .sudo-mode { position: fixed; z-index: var(--z-overlay); inset: 0; pointer-events: none; animation: sudo-in .28s var(--ease-out) both, sudo-out .45s var(--ease-out) 4.2s forwards; }
+  .sudo-mode { position: fixed; z-index: var(--z-overlay); inset: 0; overflow: hidden; isolation: isolate; background: #031f0c; pointer-events: none; animation: sudo-in .28s var(--ease-out) both, sudo-out .45s var(--ease-out) 4.2s forwards; }
   @keyframes sudo-in { from { opacity: 0; } to { opacity: 1; } }
   @keyframes sudo-out { to { opacity: 0; } }
   .sudo-scanlines {
@@ -289,7 +289,7 @@
   .sudo-mode::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, rgb(20 255 20 / 6%), rgb(0 0 0 / 72%));
+    background: radial-gradient(ellipse at center, rgb(20 255 20 / 10%), rgb(0 24 9 / 76%));
     animation: sudo-crt-flicker .14s infinite;
   }
   @keyframes sudo-crt-flicker {
