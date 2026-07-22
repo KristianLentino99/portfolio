@@ -20,8 +20,9 @@ const tickerItems = [
   'λ > OOP',
   'LGTM',
   'git commit -m "ship it"',
+  'VWCE and chill',
   'We need to deliver Business Value',
-  'Claude make me a founder, make no mistake',
+  'Claude make me a great founder, make no mistake',
   'Building Products ❤️',
   'console.log("IT WORKS")',
 ]
