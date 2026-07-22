@@ -125,8 +125,16 @@ describe('portfolio shell', () => {
     window.history.replaceState({}, '', '/timeline')
     render(<App />)
     expect(screen.getByRole('complementary', { name: /the throughline/i })).toHaveTextContent(/founder mindset connected them/i)
-    expect(screen.getByRole('region', { name: /career timeline/i })).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: /career timeline/i })).toHaveClass('is-tracing')
+    expect(screen.getAllByTestId('timeline-segment')).toHaveLength(5)
+    expect(screen.getByTestId('current-timeline-dot')).toHaveClass('current-dot')
     expect(screen.getByRole('heading', { name: /koomy is born/i })).toBeInTheDocument()
+  })
+
+  it('offers Telegram as a direct contact channel', () => {
+    window.history.replaceState({}, '', '/contact')
+    render(<App />)
+    expect(screen.getByRole('link', { name: /telegram klentino99/i })).toHaveAttribute('href', 'https://t.me/KLENTINO99')
   })
 })
 

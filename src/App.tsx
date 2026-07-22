@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import AppLink from './components/AppLink'
 import Button from './components/Button'
 import ComicBalloon from './components/ComicBalloon'
@@ -340,15 +340,34 @@ const timelineArcs = [
   { year: '2023', tag: 'ARC 3 · THE FOUNDING', title: 'Koomy is born', body: "Co-founded Koomy — Italy's digital comics platform. Bootstrapped from zero to 10k+ readers, 1k+ monthly actives, NPS 42, and partnerships with every leading Italian publisher.", featured: true },
   { year: '2024', tag: 'ARC 4 · TOKYO CHAPTER', title: 'Scala Matsuri, Tokyo', body: 'Flew to Japan to speak about Scala on stage at Scala Matsuri. A talk in the homeland of manga — the crossover episode.' },
   { year: '2024', tag: 'ARC 5 · NEW GUILD', title: 'commercetools', body: 'Joined commercetools in July 2024. Now responsible for building frontier AI agents that automate intake flows for B2B customers.' },
-  { year: 'NOW', tag: 'ARC 6 · ONGOING', title: 'The Agent Era', body: 'Frontier agents by day, Koomy growth by night, manga in every spare minute. The best arc is always the current one.', featured: true },
+  { year: 'NOW', tag: 'ARC 6 · ONGOING', title: 'The Agent Era', body: 'Frontier agents by day, Koomy growth by night, manga in every spare minute. The best arc is always the current one.', featured: true, current: true },
 ]
 
 function TimelinePage() {
-  return <><section className="timeline-intro timeline-container"><p className="eyebrow">CHAPTER 3 · ALL ARCS, IN ORDER</p><h1>The timeline<span className="accent">.</span></h1><p className="lead">From a school videogame in Chignolo Po to frontier AI agents and a comics startup. Arc by arc.</p><aside className="timeline-throughline" aria-label="The throughline"><p>THE THROUGHLINE</p><blockquote>Every arc added a new skill. <strong>The founder mindset connected them.</strong></blockquote></aside></section><section className="timeline-list timeline-container" aria-label="Career timeline">{timelineArcs.map((arc, index) => <article className="timeline-item" key={`${arc.year}-${arc.title}`}><div className="timeline-year">{arc.year}</div><div className="timeline-track"><span className={arc.featured ? 'featured-dot' : ''} />{index < timelineArcs.length - 1 && <i />}</div><div className={arc.featured ? 'timeline-card is-featured' : 'timeline-card'}><div><span>{arc.tag}</span><h2>{arc.title}</h2></div><p>{arc.body}</p></div></article>)}</section></>
+  const timelineRef = useRef<HTMLElement>(null)
+  const [isTracing, setIsTracing] = useState(() => typeof IntersectionObserver === 'undefined')
+
+  useEffect(() => {
+    const timeline = timelineRef.current
+    if (!timeline || typeof IntersectionObserver === 'undefined') return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setIsTracing(true)
+      observer.unobserve(entry.target)
+    }, { threshold: 0.12 })
+
+    observer.observe(timeline)
+    return () => observer.disconnect()
+  }, [])
+
+  const tracingClass = isTracing ? ' is-tracing' : ''
+
+  return <><section className="timeline-intro timeline-container"><p className="eyebrow">CHAPTER 3 · ALL ARCS, IN ORDER</p><h1>The timeline<span className="accent">.</span></h1><p className="lead">From a school videogame in Chignolo Po to frontier AI agents and a comics startup. Arc by arc.</p><aside className={`timeline-throughline${tracingClass}`} aria-label="The throughline"><p>THE THROUGHLINE</p><blockquote>Every arc added a new skill. <strong>The founder mindset connected them.</strong></blockquote></aside></section><section ref={timelineRef} className={`timeline-list timeline-container${tracingClass}`} aria-label="Career timeline">{timelineArcs.map((arc, index) => <article className="timeline-item" style={{ '--timeline-delay': `${340 + index * 440}ms` } as CSSProperties} key={`${arc.year}-${arc.title}`}><div className="timeline-year">{arc.year}</div><div className="timeline-track"><span className={[arc.featured && 'featured-dot', arc.current && 'current-dot'].filter(Boolean).join(' ')} data-testid={arc.current ? 'current-timeline-dot' : undefined} />{index < timelineArcs.length - 1 && <i data-testid="timeline-segment" />}</div><div className={arc.featured ? 'timeline-card is-featured' : 'timeline-card'}><div><span>{arc.tag}</span><h2>{arc.title}</h2></div><p>{arc.body}</p></div></article>)}</section></>
 }
 
 function ContactPage({ navigate: _navigate }: { navigate?: (path: string) => void }) {
-  return <section className="contact-page container"><div><p className="eyebrow">FINAL CHAPTER · SAY HI</p><h1>Building something? Investing in comics? Just love manga? <span className="accent">Let's talk.</span></h1><div className="contact-lead-row"><p className="lead">I'm always up for conversations about AI agents, startups, personal finance, Scala — or why the Marineford arc still hits different.</p><ComicBalloon variant="whisper" tail="bottom-right" size="sm" className="contact-whisper">Psst… email is the fastest route.</ComicBalloon></div><div className="contact-grid"><a href="https://www.linkedin.com/in/kristian-lentino-941694166/" target="_blank" rel="noreferrer" className="contact-card"><strong>LINKEDIN</strong><h2>Kristian Lentino</h2><span>The professional feed ↗</span></a><a href="mailto:hello@koomy.it" className="contact-card featured-panel"><strong>EMAIL</strong><h2>hello@koomy.it</h2><span>Fastest way to reach me</span></a><a href="https://koomy.it" target="_blank" rel="noreferrer" className="contact-card"><strong>KOOMY</strong><h2>koomy.it</h2><span>See what we're building ↗</span></a></div></div></section>
+  return <section className="contact-page container"><div><p className="eyebrow">FINAL CHAPTER · SAY HI</p><h1>Building something? Investing in comics? Just love manga? <span className="accent">Let's talk.</span></h1><div className="contact-lead-row"><p className="lead">I'm always up for conversations about AI agents, startups, personal finance, Scala — or why the Marineford arc still hits different.</p><ComicBalloon variant="whisper" tail="bottom-right" size="sm" className="contact-whisper">Psst… email is the fastest route.</ComicBalloon></div><div className="contact-grid"><a href="https://www.linkedin.com/in/kristian-lentino-941694166/" target="_blank" rel="noreferrer" className="contact-card"><strong>LINKEDIN</strong><h2>Kristian Lentino</h2><span>The professional feed ↗</span></a><a href="mailto:hello@koomy.it" className="contact-card featured-panel"><strong>EMAIL</strong><h2>hello@koomy.it</h2><span>Fastest way to reach me</span></a><a href="https://t.me/KLENTINO99" target="_blank" rel="noreferrer" className="contact-card" aria-label="Telegram KLENTINO99"><strong>TELEGRAM</strong><h2>@KLENTINO99</h2><span>Message me directly ↗</span></a><a href="https://koomy.it" target="_blank" rel="noreferrer" className="contact-card"><strong>KOOMY</strong><h2>koomy.it</h2><span>See what we're building ↗</span></a></div></div></section>
 }
 
 export default function App() {
