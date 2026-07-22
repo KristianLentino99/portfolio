@@ -6,7 +6,7 @@ const meta = {
   component: Sticker,
   tags: ['ai-generated'],
   args: {
-    children: 'Founder mode: ON',
+    children: 'Test',
   },
 } satisfies Meta<typeof Sticker>
 
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   play: async ({ canvas }) => {
-    await expect(canvas.getByText('Founder mode: ON')).toBeVisible()
+    await expect(canvas.getByText('Test')).toBeVisible()
   },
 }
 

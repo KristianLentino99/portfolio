@@ -9,16 +9,16 @@ The complete personal brand system for Kristian Lentino — engineer-founder, AI
 
 ## Quick Reference Card
 
-| Aspect | Value |
-|---|---|
-| **Tone** | Confident first-person founder-speak, nerdy with selective manga references, grounded claims with irreverence |
-| **Emotion** | Confidence first → curiosity → delight |
-| **Primary orange** | `#fe9a2e` / `oklch(77.6% .174 61.8)` |
-| **Body font** | Space Grotesk (400, 500, 700) |
-| **Display font** | Bangers (for stickers, labels, comic energy) |
-| **Mono font** | System monospace stack (data, tickers, labels) |
-| **One-liner** | "I build software with engineering rigor and shonen energy." |
-| **Anti-patterns** | Corporate generic, recruiter-template minimalism, SaaS gradients, glassmorphism, decorative manga without purpose |
+| Aspect             | Value                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Tone**           | Confident first-person founder-speak, nerdy with selective manga references, grounded claims with irreverence     |
+| **Emotion**        | Confidence first → curiosity → delight                                                                            |
+| **Primary orange** | `#fe9a2e` / `oklch(77.6% .174 61.8)`                                                                              |
+| **Body font**      | Space Grotesk (400, 500, 700)                                                                                     |
+| **Display font**   | Bangers (for stickers, labels, comic energy)                                                                      |
+| **Mono font**      | System monospace stack (data, tickers, labels)                                                                    |
+| **One-liner**      | "I build software with engineering rigor and shonen energy."                                                      |
+| **Anti-patterns**  | Corporate generic, recruiter-template minimalism, SaaS gradients, glassmorphism, decorative manga without purpose |
 
 ## Tone of Voice
 
@@ -34,12 +34,12 @@ The complete personal brand system for Kristian Lentino — engineer-founder, AI
 
 ### Before/After Examples
 
-| ❌ Don't | ✅ Do |
-|---|---|
-| "Kristian is a passionate engineer with deep expertise" | "I build software with engineering rigor and shonen energy." |
-| "Leveraging cutting-edge AI to drive digital transformation" | "Building frontier AI agents that automate intake flows." |
-| "A comprehensive platform for digital comics consumption" | "Italy's home for official digital comics. Read on any screen." |
-| "He has extensive experience in the fintech space" | "Joined a fintech I already used and loved. Helped build Share Investing." |
+| ❌ Don't                                                     | ✅ Do                                                                      |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| "Kristian is a passionate engineer with deep expertise"      | "I build software with engineering rigor and shonen energy."               |
+| "Leveraging cutting-edge AI to drive digital transformation" | "Building frontier AI agents that automate intake flows."                  |
+| "A comprehensive platform for digital comics consumption"    | "Italy's home for official digital comics. Read on any screen."            |
+| "He has extensive experience in the fintech space"           | "Joined a fintech I already used and loved. Helped build Share Investing." |
 
 ### Energy Calibration
 
@@ -108,10 +108,10 @@ All tokens use OKLCH with hex fallbacks for broad browser support.
 
 ```css
 /* Body + editorial */
-font-family: 'Space Grotesk', system-ui, sans-serif;
+font-family: "Space Grotesk", system-ui, sans-serif;
 
 /* Comic energy (stickers, labels, Bangers display) */
-font-family: 'Bangers', cursive;
+font-family: "Bangers", cursive;
 
 /* Data, tickers, code-like labels */
 font-family: ui-monospace, Menlo, monospace;
@@ -119,23 +119,22 @@ font-family: ui-monospace, Menlo, monospace;
 
 ### Type Scale
 
-| Role | Font | Weight | Notes |
-|---|---|---|---|
-| Hero headings | Space Grotesk | 700 | `clamp(42px, 4vw, 56px)`, line-height 1.04, letter-spacing ≥ -0.03em |
-| Page headings | Space Grotesk | 700 | `clamp(40px, 4vw, 52px)`, line-height 1.05 |
-| Section headings | Space Grotesk | 700 | `clamp(30px, 3vw, 40px)` |
-| Body copy | Space Grotesk | 400 | 15.5–18px, line-height 1.65–1.72, max 65–75 chars/line |
-| Lead paragraphs | Space Grotesk | 400 | 16.5–18px, `--muted` color |
-| Eyebrows/kickers | Space Grotesk | 700 | 13px, letter-spacing 0.12em, `--label` color |
-| Stickers | Bangers | 400 | Variable sizes, letter-spacing 0.04em |
-| Display name | Bangers | 400 | ~44px, letter-spacing 0.03em |
-| Data labels | Monospace | 700 | 11–13px, letter-spacing 0.05–0.08em |
-| Ticker | Monospace | 700 | 12px |
-| Nav links | Space Grotesk | 600 | 13px |
+| Role             | Font          | Weight | Notes                                                                |
+| ---------------- | ------------- | ------ | -------------------------------------------------------------------- |
+| Hero headings    | Space Grotesk | 700    | `clamp(42px, 4vw, 56px)`, line-height 1.04, letter-spacing ≥ -0.03em |
+| Page headings    | Space Grotesk | 700    | `clamp(40px, 4vw, 52px)`, line-height 1.05                           |
+| Section headings | Space Grotesk | 700    | `clamp(30px, 3vw, 40px)`                                             |
+| Body copy        | Space Grotesk | 400    | 15.5–18px, line-height 1.65–1.72, max 65–75 chars/line               |
+| Lead paragraphs  | Space Grotesk | 400    | 16.5–18px, `--muted` color                                           |
+| Eyebrows/kickers | Space Grotesk | 700    | 13px, letter-spacing 0.12em, `--label` color                         |
+| Stickers         | Bangers       | 400    | Variable sizes, letter-spacing 0.04em                                |
+| Display name     | Bangers       | 400    | ~44px, letter-spacing 0.03em                                         |
+| Data labels      | Monospace     | 700    | 11–13px, letter-spacing 0.05–0.08em                                  |
+| Ticker           | Monospace     | 700    | 12px                                                                 |
+| Nav links        | Space Grotesk | 600    | 13px                                                                 |
 
 ### Bangers Usage
 
-- Stickers (Founder mode: ON, New!)
 - Character display names
 - Arc tags (ARC 1 · FIRST QUEST)
 - Section kickers inside comic panels
@@ -182,19 +181,19 @@ font-family: ui-monospace, Menlo, monospace;
 
 Reference the portfolio's component patterns:
 
-| Component | Purpose | Key traits |
-|---|---|---|
-| **Wordmark** | "KL." logo | Space Grotesk 700, 36px, orange dot |
-| **Header** | KL + nav + theme toggle | Sticky, hairline bottom border |
-| **Footer** | Copyright + next chapter | "TO BE CONTINUED…" in Bangers |
-| **Button** | Primary/secondary CTAs | 6px radius, 45px min-height, hover lift |
-| **MediaSlot** | Image placeholder system | Striped pattern, stable aspect ratio |
-| **Sticker** | Orange comic labels | Bangers, slight rotation, orange glow shadow |
-| **ComicBalloon** | Semantic callouts | 5 variants: speech, shout, thought, whisper, narration |
-| **Panel/Card** | Content containers | 2px border, 10px radius, optional orange featured state |
-| **PowerBar** | RPG-style stat bars | Orange striped fill, pill shape, grow animation |
-| **Ticker** | Scrolling terminal tape | Monospace, orange bg, continuous animation |
-| **Timeline** | Career arc visualization | Vertical track with dots, year + card layout |
+| Component        | Purpose                  | Key traits                                              |
+| ---------------- | ------------------------ | ------------------------------------------------------- |
+| **Wordmark**     | "KL." logo               | Space Grotesk 700, 36px, orange dot                     |
+| **Header**       | KL + nav + theme toggle  | Sticky, hairline bottom border                          |
+| **Footer**       | Copyright + next chapter | "TO BE CONTINUED…" in Bangers                           |
+| **Button**       | Primary/secondary CTAs   | 6px radius, 45px min-height, hover lift                 |
+| **MediaSlot**    | Image placeholder system | Striped pattern, stable aspect ratio                    |
+| **Sticker**      | Orange comic labels      | Bangers, slight rotation, orange glow shadow            |
+| **ComicBalloon** | Semantic callouts        | 5 variants: speech, shout, thought, whisper, narration  |
+| **Panel/Card**   | Content containers       | 2px border, 10px radius, optional orange featured state |
+| **PowerBar**     | RPG-style stat bars      | Orange striped fill, pill shape, grow animation         |
+| **Ticker**       | Scrolling terminal tape  | Monospace, orange bg, continuous animation              |
+| **Timeline**     | Career arc visualization | Vertical track with dots, year + card layout            |
 
 ### ComicBalloon Variants
 
@@ -234,6 +233,7 @@ Limit to 1–2 balloons per viewport — comic energy is seasoning.
 ## Applying the Brand
 
 ### When Writing Copy
+
 1. Read the relevant section under "Energy Calibration"
 2. Check against "Before/After Examples"
 3. Scan for AI-speak red flags
@@ -241,6 +241,7 @@ Limit to 1–2 balloons per viewport — comic energy is seasoning.
 5. Read aloud — does it sound like a real founder talking?
 
 ### When Building UI
+
 1. Start from `design-tokens.css` (see TOKENS.md)
 2. Orange is the only accent. No exceptions.
 3. Light mode first, dark as a theme variant
@@ -248,6 +249,7 @@ Limit to 1–2 balloons per viewport — comic energy is seasoning.
 5. Everything gets a `transition: background-color .3s, color .3s, border-color .3s`
 
 ### When Designing New Components
+
 1. Follow the border-radius rules (6px buttons, 10px cards, 100px pills)
 2. Use the 2px border convention
 3. Featured state = orange bg + `#141210` text + 4px offset shadow

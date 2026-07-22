@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import AppLink from '../components/AppLink'
 import CharacterPanel from '../components/CharacterPanel'
 import ComicBalloon from '../components/ComicBalloon'
@@ -58,14 +59,31 @@ const sagaArcs = [
 
 export default function HomePage({ navigate }: HomePageProps) {
   const sudoMode = useSudoSequence()
+  const [isJapaneseNameStoryOpen, setIsJapaneseNameStoryOpen] = useState(false)
 
   return (
     <>
       <section className="hero home-hero">
+        <button
+          type="button"
+          className="home-japanese-banner"
+          lang="ja"
+          aria-label="Learn the story behind Kristian's name in Japanese, クリスティアン"
+          aria-controls="japanese-name-story"
+          aria-expanded={isJapaneseNameStoryOpen}
+          onClick={() => setIsJapaneseNameStoryOpen((isOpen) => !isOpen)}
+        >
+          クリスティアン
+        </button>
         <div className="hero-copy">
+          {isJapaneseNameStoryOpen && (
+            <aside id="japanese-name-story" className="home-japanese-story" aria-live="polite">
+              This Japanese writing is my name. An elderly Japanese man wrote it for me on a torii during my visit to Fushimi Inari.
+            </aside>
+          )}
           <p className="eyebrow">ENGINEER · FOUNDER</p>
           <h1>
-            I build software with engineering rigor
+            I build software with engineering rigor{' '}
             <br />
             <span className="accent">and shonen energy.</span>
           </h1>
@@ -93,9 +111,9 @@ export default function HomePage({ navigate }: HomePageProps) {
             priority
           />
           <ComicBalloon variant="thought" tail="bottom-left" size="sm" className="home-thought">
-            What should we build next?
+            What should I build next?
           </ComicBalloon>
-          <Sticker className="founder-sticker">Founder mode: ON</Sticker>
+          <Sticker className="founder-sticker">Dattebayo!!!</Sticker>
         </div>
       </section>
       <Ticker items={tickerItems} />

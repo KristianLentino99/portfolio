@@ -650,6 +650,51 @@ responsive;
         gap: 48px;
         align-items: center;
     }
+    .home-hero {
+        position: relative;
+    }
+    .home-japanese-banner {
+        position: absolute;
+        z-index: 1;
+        top: 118px;
+        left: -30px;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        min-height: 272px;
+        margin: 0;
+        padding: 14px 8px;
+        border: 0;
+        background: var(--orange);
+        box-shadow: 4px 4px 0 rgb(20 18 16 / 82%);
+        color: #141210;
+        cursor: pointer;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        text-orientation: upright;
+        writing-mode: vertical-rl;
+    }
+    .home-japanese-banner:hover {
+        transform: translateX(2px);
+    }
+    .home-japanese-story {
+        position: absolute;
+        z-index: 2;
+        top: 16px;
+        left: -20px;
+        width: 270px;
+        margin: 0;
+        padding: 14px 16px;
+        border: 2px solid var(--orange);
+        background: var(--card);
+        box-shadow: 4px 4px 0 rgb(20 18 16 / 82%);
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+    }
     .hero-copy h1,
     .contact-page h1 {
         margin: 0 0 24px;
@@ -1228,6 +1273,30 @@ responsive;
     }
     .about-grid .prose {
         font-size: 16.5px;
+    }
+    .about-japanese-signature {
+        width: fit-content;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin: 0 0 26px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--orange);
+        color: var(--fg);
+    }
+    .about-japanese-signature__label {
+        color: var(--label);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        line-height: 1.25;
+    }
+    .about-japanese-signature__name {
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        font-size: clamp(26px, 2.4vw, 34px);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        line-height: 1;
     }
     .about-media {
         position: relative;
@@ -1921,6 +1990,27 @@ responsive;
             padding-block: 48px 52px;
             grid-template-columns: 1fr;
         }
+        .home-japanese-banner {
+            position: static;
+            justify-self: start;
+            width: auto;
+            min-height: 0;
+            margin-bottom: -24px;
+            padding: 10px 14px;
+            font-size: 24px;
+            letter-spacing: 0.1em;
+            text-orientation: mixed;
+            writing-mode: horizontal-tb;
+        }
+        .home-japanese-banner:hover {
+            transform: none;
+        }
+        .home-japanese-story {
+            position: static;
+            width: auto;
+            margin: 0 0 14px;
+            padding: 12px 14px;
+        }
         .hero-copy h1 {
             font-size: clamp(36px, 10.5vw, 48px);
         }
@@ -2047,6 +2137,11 @@ responsive;
         }
     }
     @media (max-width: 520px) {
+        .about-japanese-signature {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 6px;
+        }
         .button-row {
             flex-direction: column;
             align-items: stretch;

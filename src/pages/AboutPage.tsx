@@ -57,6 +57,14 @@ export default function AboutPage({ navigate }: AboutPageProps) {
         </h1>
         <div className="about-grid">
           <div className="prose">
+            <div className="about-japanese-signature" lang="ja">
+              <span className="about-japanese-signature__label" aria-hidden="true">
+                KRISTIAN, IN JAPANESE
+              </span>
+              <span className="about-japanese-signature__name" lang="ja">
+                クリスティアン
+              </span>
+            </div>
             <p>
               I grew up in Chignolo Po, a small village in Italy. In high school I studied
               informatics but I wasn't particularly passionate about the topic and honestly, at first I didn't like it at all. Then came a school

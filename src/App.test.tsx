@@ -31,9 +31,32 @@ describe('portfolio shell', () => {
 
   it('points the hero thought balloon toward the portrait subject', () => {
     render(<App />)
-    expect(screen.getByText('What should we build next?').closest('aside')).toHaveClass(
+    expect(screen.getByRole('note')).toHaveClass(
       'comic-balloon--tail-bottom-left',
     )
+  })
+
+  it('treats Kristian’s Japanese name as a visible bilingual signature on home and About', () => {
+    render(<App />)
+    expect(screen.getByText('クリスティアン')).toHaveClass('home-japanese-banner')
+    expect(screen.getByText('クリスティアン')).toHaveAttribute('lang', 'ja')
+
+    fireEvent.click(screen.getByRole('link', { name: 'About' }))
+    expect(screen.getByText('KRISTIAN, IN JAPANESE').parentElement).toHaveTextContent(
+      'クリスティアン',
+    )
+    expect(screen.getByText('クリスティアン')).toHaveAttribute('lang', 'ja')
+  })
+
+  it('reveals the Fushimi Inari story when the Japanese name is selected', () => {
+    render(<App />)
+    const nameButton = screen.getByRole('button', { name: /story behind.*クリスティアン/i })
+
+    expect(screen.queryByText(/elderly Japanese man wrote it for me/i)).not.toBeInTheDocument()
+    fireEvent.click(nameButton)
+
+    expect(nameButton).toHaveAttribute('aria-expanded', 'true')
+    expect(screen.getByText(/elderly Japanese man wrote it for me/i)).toBeInTheDocument()
   })
 
   it('switches the complete character loadout with the selected gear', () => {
