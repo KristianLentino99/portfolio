@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" fill="none">
+  <!--
+    Dark-mode LinkedIn Banner — Kristian Lentino
+    No external fonts, no filters, all inline attrs.
+    Dimensions: 1584 × 396 px (4:1)
+  -->
+
+  <!-- Background -->
+  <rect width="1584" height="396" fill="#151210"/>
+
+  <!-- ===== KL WORDMARK (dark-mode: #faf8f4 fill, same paths as favicon) ===== -->
+  <g transform="translate(248, 28) scale(2.8)">
+    <!-- K -->
+    <path fill="#faf8f4" d="M6 10h7v17.2L26.5 10h8.4L20.4 28.3 35.3 52h-8.2L15.8 33.7 13 37.2V52H6V10Z"/>
+    <!-- L -->
+    <path fill="#faf8f4" d="M36 10h7v35h10v7H36V10Z"/>
+    <!-- Orange dot -->
+    <circle fill="#fe9a2e" cx="58" cy="48" r="4"/>
+  </g>
+
+  <!-- ===== TAGLINE ===== -->
+  <text x="248" y="218" font-family="Space Grotesk, system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#faf8f4" letter-spacing="-0.03em">
+    I build software with engineering rigor
+  </text>
+  <text x="248" y="256" font-family="Space Grotesk, system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#faf8f4" letter-spacing="-0.03em">
+    <tspan>and</tspan><tspan dx="8" fill="#fe9a2e">Shōnen energy.</tspan>
+  </text>
+
+  <!-- ===== ROLES ===== -->
+  <text x="248" y="300" font-family="Space Grotesk, system-ui, -apple-system, sans-serif" font-size="15.5" font-weight="400" fill="rgb(250 248 244 / 67%)">
+    CEO @ Koomy
+  </text>
+
+
+  <!-- ===== CODE ICON ===== -->
+  <g transform="translate(1316, 79)" fill="none" stroke="#fe9a2e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M31 2 3 30l28 28"/>
+    <path d="m69 2 28 28-28 28"/>
+    <path d="m59 0-20 60"/>
+  </g>
+
+  <!-- ===== POWER BARS ===== -->
+
+  <!-- AI Agents label -->
+  <text x="248" y="365" font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="700" fill="rgb(250 248 244 / 76%)" letter-spacing="0.06em">
+    AI AGENTS
+  </text>
+  <circle cx="340" cy="361" r="4" fill="#fe9a2e"/>
+
+  <!-- Product Engineering label -->
+  <text x="370" y="365" font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="700" fill="rgb(250 248 244 / 76%)" letter-spacing="0.06em">
+    PRODUCT ENGINEERING
+  </text>
+  <circle cx="540" cy="361" r="4" fill="#fe9a2e"/>
+<text x="570" y="365" font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="700" fill="rgb(250 248 244 / 76%)" letter-spacing="0.06em">
+    STARTUP
+  </text>
+
+  <!-- ===== URL ===== -->
+  <text x="1420" y="365" font-family="Space Grotesk, system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="rgb(250 248 244 / 67%)" text-anchor="end">
+    kristianlentino.it
+  </text>
+
+  <!-- ===== BOTTOM ORANGE STRIPE ===== -->
+  <rect x="0" y="392" width="1584" height="4" fill="#fe9a2e"/>
+
+  <!-- ===== TOP HAIRLINE ===== -->
+  <rect x="0" y="0" width="1584" height="1" fill="rgb(250 248 244 / 13%)"/>
+</svg>

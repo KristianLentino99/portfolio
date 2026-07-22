@@ -90,11 +90,7 @@ export default function CharacterPanel() {
       <div className="character-card">
         <div className="select-label">SELECT YOUR KRISTIAN</div>
         <div className="avatar-wrap gear-swap" key={gear.id}>
-          <MediaSlot
-            src={assetPath(gear.image)}
-            alt={gear.alt}
-            className="avatar-slot"
-          />
+          <MediaSlot src={assetPath(gear.image)} alt={gear.alt} className="avatar-slot" />
           {gear.badges.map((badge, index) => (
             <span
               className={`gear-badge badge-${index + 1}`}

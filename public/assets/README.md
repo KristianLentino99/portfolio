@@ -5,7 +5,7 @@ Add the final artwork using these filenames. The site will keep the designed pla
 - `portrait.webp`: primary Home portrait, ideally 4:5.
 - `avatars/avatar-2d.webp`: Founder Gear artwork for the Home character selector.
 - `avatars/building_mode.webp`: Builder Gear artwork for the Home character selector.
-- `avatars/kristian-walk.webp`: walking sprite sheet for `WalkingSprite` (4x2 grid, 256x512px/frame; row 0 = facing right, row 1 = facing left). Pre-converted losslessly — do not delete/regenerate via the image pipeline.
+- `avatars/kristian-walk.webp`: walking sprite sheet for `WalkingSprite` (8x2 grid, 256x512px/frame; row 0 = facing right, row 1 = facing left).
 - `koomy-logo.webp`: official bordered Koomy logo used in the Koomy hero.
 - `tokyo.webp`: About page photo, ideally 4:5.
 - `koomy-reader.webp`: Koomy reader screenshot, ideally 9:16.

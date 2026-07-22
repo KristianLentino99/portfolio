@@ -18,12 +18,12 @@ const tickerItems = [
   "IT'S OVER 9000",
   'the answer is 42',
   'λ > OOP',
-  'nakama > everything',
+  'LGTM',
   'git commit -m "ship it"',
-  'do a barrel roll',
-  'sudo make me a founder',
-  'One Piece > sleep',
-  'console.log("gm")',
+  'We need to deliver Business Value',
+  'Claude make me a founder, make no mistake',
+  'Building Products ❤️',
+  'console.log("IT WORKS")',
 ]
 
 const sagaArcs = [
@@ -70,7 +70,7 @@ export default function HomePage({ navigate }: HomePageProps) {
           </h1>
           <p className="lead">
             Hey there, I'm Kristian 👋🏻. <br />I love to build things and right now I'm working on{' '}
-            <b>AI agents</b> at commercetools and I'm the co-founder of{' '}
+            <b>AI agents</b> at Commercetools and I'm the co-founder of{' '}
             <b>Koomy: the Italy's digital comics platform </b>. As you can guess I'm a big comics
             and manga fan.
           </p>
@@ -117,8 +117,7 @@ export default function HomePage({ navigate }: HomePageProps) {
               <div>
                 <strong>TRAINING</strong>
                 <span>
-                  Frontier AI agents at commercetools leveraging on LLM to automate and cut costs
-                  for our customers.
+                  Frontier AI agents at Commercetools leveraging on LLM to automate and reduce time spent on manual task by 2x.
                 </span>
               </div>
               <div>

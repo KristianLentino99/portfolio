@@ -9,12 +9,7 @@ export interface MediaSlotProps {
 
 type ImageState = 'loading' | 'loaded' | 'failed'
 
-export default function MediaSlot({
-  src,
-  alt,
-  className = '',
-  priority = false,
-}: MediaSlotProps) {
+export default function MediaSlot({ src, alt, className = '', priority = false }: MediaSlotProps) {
   const [state, setState] = useState<ImageState>('loading')
   const imgRef = useRef<HTMLImageElement>(null)
 

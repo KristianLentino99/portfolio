@@ -20,7 +20,7 @@ export default defineConfig({
         extends: true,
         test: {
           environment: 'jsdom',
-          setupFiles: './src/test/setup.ts',
+          setupFiles: ['./src/test/animation-event-polyfill.ts', './src/test/setup.ts'],
         },
       },
       {
