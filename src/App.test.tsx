@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 import App from './App'
 import { assetPath, fromBrowserPath, toBrowserPath } from './routing'
@@ -8,6 +8,16 @@ describe('portfolio shell', () => {
     window.history.replaceState({}, '', '/')
     window.localStorage.clear()
     document.documentElement.removeAttribute('data-theme')
+    window.matchMedia = (query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+      addListener: () => undefined,
+      removeListener: () => undefined,
+      dispatchEvent: () => false,
+    })
   })
 
   it('renders the founder positioning and primary navigation', () => {
@@ -44,6 +54,61 @@ describe('portfolio shell', () => {
     fireEvent.click(screen.getByRole('button', { name: /switch to dark theme/i }))
     expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
     expect(window.localStorage.getItem('kl-theme')).toBe('dark')
+  })
+
+  it('uses the system color scheme when no theme has been selected', () => {
+    window.matchMedia = (query: string) => ({
+      matches: query === '(prefers-color-scheme: dark)',
+      media: query,
+      onchange: null,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+      addListener: () => undefined,
+      removeListener: () => undefined,
+      dispatchEvent: () => false,
+    })
+
+    render(<App />)
+    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+    expect(screen.getByRole('button', { name: /switch to light theme/i })).toBeInTheDocument()
+  })
+
+  it('responds to system color-scheme changes until the user chooses a theme', () => {
+    let onColorSchemeChange: ((event: MediaQueryListEvent) => void) | undefined
+    window.matchMedia = (query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addEventListener: (_event: string, listener: EventListenerOrEventListenerObject) => {
+        onColorSchemeChange = listener as (event: MediaQueryListEvent) => void
+      },
+      removeEventListener: () => undefined,
+      addListener: () => undefined,
+      removeListener: () => undefined,
+      dispatchEvent: () => false,
+    })
+
+    render(<App />)
+    expect(document.documentElement).toHaveAttribute('data-theme', 'light')
+    act(() => onColorSchemeChange?.({ matches: true } as MediaQueryListEvent))
+    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+  })
+
+  it('keeps an explicit theme choice over the system preference', () => {
+    window.localStorage.setItem('kl-theme', 'light')
+    window.matchMedia = (query: string) => ({
+      matches: query === '(prefers-color-scheme: dark)',
+      media: query,
+      onchange: null,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+      addListener: () => undefined,
+      removeListener: () => undefined,
+      dispatchEvent: () => false,
+    })
+
+    render(<App />)
+    expect(document.documentElement).toHaveAttribute('data-theme', 'light')
   })
 
   it('connects the Koomy product story to its reader-first origin', () => {

@@ -49,8 +49,22 @@ function useRoute() {
 function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = window.localStorage.getItem('kl-theme')
-    return saved === 'dark' ? 'dark' : 'light'
+    if (saved === 'dark' || saved === 'light') return saved
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
+
+  useEffect(() => {
+    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)')
+    const followSystemTheme = (event: MediaQueryListEvent) => {
+      const saved = window.localStorage.getItem('kl-theme')
+      if (saved !== 'dark' && saved !== 'light') {
+        setTheme(event.matches ? 'dark' : 'light')
+      }
+    }
+
+    colorScheme.addEventListener('change', followSystemTheme)
+    return () => colorScheme.removeEventListener('change', followSystemTheme)
+  }, [])
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
