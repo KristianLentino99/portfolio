@@ -134,15 +134,15 @@ export default function HomePage({ navigate }: HomePageProps) {
                 </span>
               </div>
               <div>
-                <strong>TRAINING</strong>
+                <strong>SHIPPING</strong>
                 <span>
-                  Frontier AI agents at Commercetools leveraging on LLM to automate and reduce time spent on manual task by 2x.
+                  Frontier AI agents at Commercetools leveraging on LLM to automate and reduce time spent of our customers on manual task by 2x.
                 </span>
               </div>
               <div>
                 <strong>LAST SEEN</strong>
                 <span>
-                  On stage at Scala Matsuri in Tokyo talking about Scala in the homeland of manga.
+                  On stage at Scala Matsuri in my beloved Tokyo talking about Scala in the homeland of manga.
                 </span>
               </div>
             </div>

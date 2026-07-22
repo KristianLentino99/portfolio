@@ -65,7 +65,7 @@ const CHARACTER_GEARS: CharacterGear[] = [
       { name: 'FULL-STACK ENGINEERING', level: 'LV. 96', value: 96 },
       { name: 'SCALA & BACKEND', level: 'LV. 94', value: 94 },
       { name: 'AI AGENTS', level: 'LV. 91', value: 91 },
-      { name: 'SHIPPING VELOCITY', level: 'LV. 98', value: 98 },
+      { name: 'PRODUCT ENGINEERING', level: 'LV. 98', value: 98 },
     ],
     moves: [
       { name: 'Ship-It Beam', featured: true },
