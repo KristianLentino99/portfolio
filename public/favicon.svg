@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .wordmark { fill: #141210; }
+    @media (prefers-color-scheme: dark) {
+      .wordmark { fill: #faf8f4; }
+    }
+  </style>
+  <path class="wordmark" d="M6 10h7v17.2L26.5 10h8.4L20.4 28.3 35.3 52h-8.2L15.8 33.7 13 37.2V52H6V10Z" />
+  <path class="wordmark" d="M36 10h7v35h10v7H36V10Z" />
+  <circle cx="58" cy="48" r="4" fill="#fe9a2e" />
+</svg>

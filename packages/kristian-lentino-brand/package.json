@@ -1,0 +1,9 @@
+{
+  "name": "kristian-lentino-brand",
+  "version": "1.0.0",
+  "description": "Kristian Lentino's personal brand system — tone of voice, color palette, typography, design tokens, and component patterns for consistent founder branding across all projects and harnesses.",
+  "keywords": ["pi-package", "brand", "design-system", "personal-branding"],
+  "pi": {
+    "skills": ["./skills"]
+  }
+}
