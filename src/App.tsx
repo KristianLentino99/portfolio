@@ -189,7 +189,7 @@ const fuelItems = [
 
 const shelfItems = [
   { title: 'Attack on Titan', image: '/assets/attack-on-titan.webp', body: 'Masterclass in long-game plotting. Every founder should study Erwin.' },
-  { title: 'Naruto', image: '/assets/naruto.webp', body: 'The underdog grind. Talent is nice; refusing to quit is better.' },
+  { title: 'Naruto', image: '/assets/naruto.webp', body: 'The underdog grind. Talent is nice but refusing to quit and achieve your goal is even better.' },
   { title: 'One Piece', image: '/assets/one-piece.webp', body: "A 29-year vision (with a lot of retcon), executed weekly. That's the startup dream." },
 ]
 
@@ -233,6 +233,7 @@ function KoomyPage() {
   const users = useCount(10000)
   const mau = useCount(1000)
   const nps = useCount(42)
+  const rating = 4.6
   const artworks = useCount(4000)
   return (
     <>
@@ -258,7 +259,8 @@ function KoomyPage() {
       <section className="metric-band" aria-label="Koomy metrics">
         <div><strong>{users >= 10000 ? '10k+' : users.toLocaleString()}</strong><span>Registered readers</span></div>
         <div><strong>{mau >= 1000 ? '1k+' : mau.toLocaleString()}</strong><span>Monthly active readers</span></div>
-        <div><strong>{nps}</strong><span>NPS - it never stops climbing</span></div>
+        <div><strong>{nps}</strong><span>NPS that grows each quarter</span></div>
+        <div><strong>{rating}</strong><span>Avg. Rating on the stores</span></div>
         <div><strong>{artworks}+</strong><span>Comics available</span></div>
       </section>
 

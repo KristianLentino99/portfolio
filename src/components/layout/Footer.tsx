@@ -20,7 +20,7 @@ export default function Footer({ path, onNavigate, next }: FooterProps) {
           {next.label}
         </AppLink>
       ) : path === '/' ? (
-        <span className="sudo-hint">psst — try sudo</span>
+        <span className="sudo-hint">psst... try typing "sudo"</span>
       ) : (
         <span className="continued">TO BE CONTINUED…</span>
       )}

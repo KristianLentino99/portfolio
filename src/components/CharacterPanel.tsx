@@ -56,7 +56,7 @@ const CHARACTER_GEARS: CharacterGear[] = [
     nextQuest: 'NEXT QUEST: COMPOUND THE CRAFT',
     xp: 78,
     badges: [
-      { symbol: 'λ', label: 'Scala' },
+      { symbol: 'λ', label: 'Functional Programming' },
       { symbol: 'AI', label: 'AI agents' },
       { symbol: '</>', label: 'Full-stack engineering' },
       { symbol: '⚡', label: 'Shipping velocity' },
