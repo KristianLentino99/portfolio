@@ -32,6 +32,21 @@ describe('portfolio shell', () => {
     expect(screen.getByText('What should we build next?').closest('aside')).toHaveClass('comic-balloon--tail-bottom-left')
   })
 
+  it('switches the complete character loadout with the selected gear', () => {
+    render(<App />)
+
+    expect(screen.getByText(/founder gear · build the company/i)).toBeInTheDocument()
+    expect(screen.getByText('FOUNDER GRIT')).toBeInTheDocument()
+    expect(screen.getByText('Bootstrap Defense')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /next gear/i }))
+
+    expect(screen.getByText(/builder gear · ship the system/i)).toBeInTheDocument()
+    expect(screen.getByText('SHIPPING VELOCITY')).toBeInTheDocument()
+    expect(screen.getByText('Type-Safe Strike')).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: /builder gear avatar/i })).toHaveAttribute('src', '/assets/avatars/building_mode.webp')
+  })
+
   it('navigates between portfolio routes without a full reload', () => {
     render(<App />)
     fireEvent.click(screen.getByRole('link', { name: 'About' }))

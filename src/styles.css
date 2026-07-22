@@ -226,15 +226,21 @@
   .avatar-slot img { object-fit: contain; }
   .gear-badge { position: absolute; width: 58px; height: 58px; border: 2px solid var(--cardline); border-radius: 50%; background: var(--card); color: var(--label); box-shadow: 3px 3px 0 var(--cardline); display: grid; place-items: center; font-family: 'Bangers', cursive; font-size: 24px; animation: float 3.2s ease-in-out infinite; }
   .gear-badge:nth-of-type(odd) { background: var(--orange); color: #141210; }
-  .badge-one { top: -8px; left: -36px; }
-  .badge-two { top: -8px; right: -36px; animation-delay: .5s; }
-  .badge-three { bottom: -8px; left: -36px; animation-delay: 1s; font-family: inherit; }
-  .badge-four { bottom: -8px; right: -36px; animation-delay: 1.5s; }
+  .badge-1 { top: -8px; left: -36px; }
+  .badge-2 { top: -8px; right: -36px; animation-delay: .5s; }
+  .badge-3 { bottom: -8px; left: -36px; animation-delay: 1s; font-family: inherit; font-size: 17px; }
+  .badge-4 { bottom: -8px; right: -36px; animation-delay: 1.5s; }
   @keyframes float { 50% { transform: translateY(-7px); } }
   .gear-caption { display: flex; justify-content: center; align-items: center; gap: 16px; color: var(--muted-2); }
-  .gear-caption strong { color: var(--label); font-family: 'Bangers', cursive; font-size: 17px; letter-spacing: .06em; }
+  .gear-caption strong { min-width: 190px; color: var(--label); font-family: 'Bangers', cursive; font-size: 17px; letter-spacing: .06em; text-align: center; }
+  .gear-nav { width: 36px; height: 36px; flex: none; border: 2px solid var(--cardline); border-radius: 6px; background: var(--card); color: var(--fg); box-shadow: 2px 2px 0 var(--cardline); cursor: pointer; font-weight: 700; transition: transform .16s var(--ease-out), background-color .16s, color .16s; }
+  .gear-nav:hover { background: var(--orange); color: #141210; transform: translate(-1px, -1px); }
+  .gear-nav:active { box-shadow: none; transform: translate(1px, 1px); }
+  .gear-swap { animation: gear-swap .38s var(--ease-out) both; }
+  @keyframes gear-swap { from { opacity: .35; filter: brightness(.82); transform: translateY(6px); } to { opacity: 1; filter: none; transform: none; } }
   .stats-panel { padding-top: 2px; }
   .display-name { margin: 8px 0 4px; font-family: 'Bangers', cursive; font-size: 44px; font-weight: 400; letter-spacing: .03em; line-height: 1; }
+  .gear-role { margin: 0 0 12px; color: var(--label); font-family: ui-monospace, Menlo, monospace; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
   .level-row, .power-label { display: flex; justify-content: space-between; align-items: baseline; }
   .level-row { margin-bottom: 8px; font-size: 14px; }
   .level-row > span { color: var(--muted-2); font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .05em; }
@@ -459,8 +465,10 @@
     .character-card { padding-inline: 16px; }
     .avatar-wrap { margin-inline: 30px; }
     .gear-badge { width: 50px; height: 50px; font-size: 21px; }
-    .badge-one, .badge-three { left: -30px; }
-    .badge-two, .badge-four { right: -30px; }
+    .badge-1, .badge-3 { left: -30px; }
+    .badge-2, .badge-4 { right: -30px; }
+    .gear-caption { gap: 8px; }
+    .gear-caption strong { min-width: 0; flex: 1; font-size: 15px; }
     .display-name { font-size: 36px; }
     .level-row { align-items: flex-start; flex-direction: column; gap: 4px; }
     .now-grid, .fuel-grid { grid-template-columns: 1fr; }

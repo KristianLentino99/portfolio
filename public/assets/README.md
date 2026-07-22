@@ -3,7 +3,8 @@
 Add the final artwork using these filenames. The site will keep the designed placeholder until each file exists.
 
 - `portrait.webp`: primary Home portrait, ideally 4:5.
-- `avatar-2d.webp`: transparent character/avatar art for the Home character panel.
+- `avatars/avatar-2d.webp`: Founder Gear artwork for the Home character selector.
+- `avatars/building_mode.webp`: Builder Gear artwork for the Home character selector.
 - `koomy-logo.webp`: official bordered Koomy logo used in the Koomy hero.
 - `tokyo.webp`: About page photo, ideally 4:5.
 - `koomy-reader.webp`: Koomy reader screenshot, ideally 9:16.

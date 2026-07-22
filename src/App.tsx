@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import AppLink from './components/AppLink'
 import Button from './components/Button'
+import CharacterPanel from './components/CharacterPanel'
 import ComicBalloon from './components/ComicBalloon'
 import MediaSlot from './components/MediaSlot'
-import PowerBar from './components/PowerBar'
 import Sticker from './components/Sticker'
 import Ticker from './components/Ticker'
 import PageShell from './components/layout/PageShell'
@@ -92,46 +92,6 @@ const sagaArcs = [
   { arc: 'ARC 4 · 2024', title: 'Tokyo Chapter', body: 'Spoke at Scala Matsuri. Joined commercetools.' },
   { arc: 'ARC 5 · NOW', title: 'Agent Era', body: 'Frontier AI agents by day, Koomy growth by night.' },
 ]
-
-const powerStats = [
-  { name: 'FULL-STACK ENGINEERING', level: 'LV. 92', value: 92 },
-  { name: 'SCALA & BACKEND', level: 'LV. 88', value: 88 },
-  { name: 'AI AGENTS', level: 'LV. 85 ↑', value: 85 },
-  { name: 'FOUNDER GRIT', level: 'LV. ∞', value: 100 },
-]
-
-function CharacterPanel() {
-  return (
-    <section className="character-section" aria-labelledby="character-heading">
-      <div className="character-card">
-        <div className="select-label">SELECT YOUR ENGINEER</div>
-        <div className="avatar-wrap">
-          <MediaSlot src={assetPath('assets/avatar-2d.webp')} alt="2D avatar of Kristian Lentino" label="Drop your 2D avatar here" className="avatar-slot" />
-          <span className="gear-badge badge-one" title="Scala">λ</span>
-          <span className="gear-badge badge-two" title="AI agents">AI</span>
-          <span className="gear-badge badge-three" title="Shipping speed">⚡</span>
-          <span className="gear-badge badge-four" title="Comics power">✦</span>
-        </div>
-        <div className="gear-caption"><span>◀</span><strong>SET 1 · FOUNDER GEAR</strong><span>▶</span></div>
-      </div>
-      <div className="stats-panel">
-        <div className="section-kicker" id="character-heading">CHARACTER STATS</div>
-        <h2 className="display-name">KRISTIAN LENTINO</h2>
-        <div className="level-row"><strong>Level 27</strong><span>NEXT LEVEL: SHIP MORE<span className="cursor">▮</span></span></div>
-        <PowerBar value={68} className="xp-bar" />
-        <div className="power-list">
-          {powerStats.map((stat) => (
-            <div key={stat.name}>
-              <div className="power-label"><strong>{stat.name}</strong><span>{stat.level}</span></div>
-              <PowerBar value={stat.value} />
-            </div>
-          ))}
-        </div>
-        <div className="moves"><strong>SPECIAL MOVES:</strong><span>Ship-It Beam</span><span>Agent Summoning</span><span>Bootstrap Defense</span><span className="move-featured">Panel-by-Panel Vision</span></div>
-      </div>
-    </section>
-  )
-}
 
 function HomePage({ navigate }: { navigate: (path: string) => void }) {
   const [superMode, setSuperMode] = useState(false)
